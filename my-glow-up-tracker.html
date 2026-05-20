@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>✿ my glow up tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --blush: #f5d6e0;
+  --rose: #e8a0b4;
+  --rose-deep: #c97090;
+  --lavender: #e8dff5;
+  --purple: #b89fd4;
+  --purple-deep: #8a6caa;
+  --beige: #faf5ef;
+  --beige-warm: #f0e8dc;
+  --beige-dark: #d4c4b0;
+  --cream: #fffaf6;
+  --text: #4a3a4a;
+  --text-soft: #8a7a8a;
+  --text-light: #b8a8b8;
+  --white: #ffffff;
+  --success: #a8d5b5;
+  --success-deep: #5a9e72;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* bg blobs */
+body::before {
+  content: '';
+  position: fixed;
+  top: -120px; right: -120px;
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(232,223,245,0.7) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -100px; left: -100px;
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(245,214,224,0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app { max-width: 480px; margin: 0 auto; padding: 0 16px 100px; position: relative; z-index: 1; }
+
+/* header */
+.hero {
+  text-align: center;
+  padding: 36px 0 20px;
+}
+.hero-petal {
+  font-size: 32px;
+  margin-bottom: 8px;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--purple-deep);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--rose-deep);
+}
+.hero p {
+  font-size: 12px;
+  color: var(--text-light);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* stat row */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+.stat-pill {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 14px 8px;
+  text-align: center;
+  border: 1px solid rgba(184,159,212,0.2);
+  box-shadow: 0 2px 12px rgba(184,159,212,0.1);
+  transition: transform 0.2s;
+}
+.stat-pill:hover { transform: translateY(-2px); }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--purple-deep);
+}
+.stat-lbl {
+  font-size: 10px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* nav */
+.nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 4px 0 12px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav-btn {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 1.5px solid transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--white);
+  color: var(--text-soft);
+  border-color: rgba(184,159,212,0.25);
+}
+.nav-btn.active {
+  background: linear-gradient(135deg, var(--lavender), var(--blush));
+  color: var(--purple-deep);
+  border-color: var(--purple);
+  box-shadow: 0 3px 12px rgba(184,159,212,0.3);
+}
+
+/* sections */
+.section { display: none; animation: fadeUp 0.3s ease; }
+.section.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* cards */
+.card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(184,159,212,0.15);
+  box-shadow: 0 4px 20px rgba(184,159,212,0.08);
+}
+.card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: var(--purple-deep);
+  margin-bottom: 4px;
+}
+.card-sub {
+  font-size: 11px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+/* meal rows */
+.meal-row {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(184,159,212,0.2);
+  align-items: flex-start;
+}
+.meal-row:last-child { border-bottom: none; }
+.meal-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.meal-dot.b { background: var(--rose); }
+.meal-dot.l { background: var(--purple); }
+.meal-dot.s { background: #f0c4a0; }
+.meal-dot.d { background: #a0c4d4; }
+.meal-info { flex: 1; }
+.meal-time-tag {
+  font-size: 10px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.meal-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin: 2px 0;
+}
+.meal-desc {
+  font-size: 12px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.meal-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.tag {
+  font-size: 10px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  font-weight: 400;
+}
+.tag-r { background: rgba(245,214,224,0.6); color: var(--rose-deep); }
+.tag-p { background: rgba(232,223,245,0.6); color: var(--purple-deep); }
+.tag-g { background: rgba(168,213,181,0.4); color: var(--success-deep); }
+.tag-a { background: rgba(240,196,160,0.4); color: #b07840; }
+
+/* day nav */
+.day-nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 8px;
+}
+.day-nav button {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(184,159,212,0.3);
+  background: var(--white);
+  cursor: pointer;
+  font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--purple-deep);
+  transition: all 0.2s;
+}
+.day-nav button:hover { background: var(--lavender); }
+.day-label {
+  flex: 1;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--purple-deep);
+}
+.day-dots {
+  display: flex; gap: 4px; justify-content: center; margin-bottom: 14px;
+}
+.day-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(184,159,212,0.25);
+  transition: all 0.2s;
+}
+.day-dot.active { background: var(--purple); width: 18px; border-radius: 3px; }
+
+/* schedule timeline */
+.timeline { position: relative; padding-left: 20px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px; top: 8px; bottom: 8px;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--blush), var(--lavender), var(--blush));
+  border-radius: 2px;
+}
+.tl-item {
+  position: relative;
+  padding: 0 0 16px 20px;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -2px; top: 5px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--rose);
+  box-shadow: 0 0 0 3px rgba(245,214,224,0.4);
+}
+.tl-time {
+  font-size: 10px;
+  color: var(--rose-deep);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+.tl-text {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.tl-text strong { color: var(--purple-deep); font-weight: 500; }
+
+/* checklist */
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(184,159,212,0.15);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.check-item:last-child { border-bottom: none; }
+.check-item:hover { transform: translateX(3px); }
+.check-box {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--purple);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s;
+  font-size: 12px;
+}
+.check-box.checked {
+  background: linear-gradient(135deg, var(--rose), var(--purple));
+  border-color: transparent;
+  color: white;
+}
+.check-text {
+  font-size: 13px;
+  color: var(--text);
+  flex: 1;
+  transition: all 0.2s;
+}
+.check-text.done { text-decoration: line-through; color: var(--text-light); }
+
+/* progress ring */
+.progress-wrap { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+.ring-wrap { position: relative; width: 64px; height: 64px; flex-shrink: 0; }
+.ring-wrap svg { transform: rotate(-90deg); }
+.ring-pct {
+  position: absolute;
+  inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  color: var(--purple-deep);
+}
+.prog-info { flex: 1; }
+.prog-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.prog-sub { font-size: 11px; color: var(--text-light); }
+
+/* water drops */
+.water-grid { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.drop-btn {
+  width: 38px; height: 38px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  border: 1.5px solid rgba(160,196,212,0.4);
+  background: var(--beige);
+  cursor: pointer;
+  font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  color: var(--text-light);
+}
+.drop-btn.filled {
+  background: linear-gradient(180deg, #c8e8f5, #90c8e0);
+  border-color: #90c8e0;
+  color: white;
+  box-shadow: 0 3px 10px rgba(144,200,224,0.3);
+}
+.drop-btn:hover { transform: scale(1.1); }
+.water-label { font-size: 12px; color: var(--text-soft); margin-top: 8px; }
+.water-label span { color: var(--purple-deep); font-weight: 500; }
+
+/* recipes */
+.recipe-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(184,159,212,0.15);
+  overflow: hidden;
+  position: relative;
+}
+.recipe-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 20px 20px 0 0;
+}
+.recipe-card.pink::before { background: linear-gradient(90deg, var(--blush), var(--rose)); }
+.recipe-card.purple::before { background: linear-gradient(90deg, var(--lavender), var(--purple)); }
+.recipe-card.mint::before { background: linear-gradient(90deg, #d0f0e0, var(--success)); }
+.recipe-card.peach::before { background: linear-gradient(90deg, #fde8d0, #f0c4a0); }
+.recipe-emoji { font-size: 28px; margin-bottom: 8px; }
+.recipe-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: var(--purple-deep);
+  margin-bottom: 4px;
+}
+.recipe-note {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.steps { padding-left: 0; list-style: none; }
+.steps li {
+  font-size: 12px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  padding: 5px 0;
+  padding-left: 20px;
+  position: relative;
+  border-bottom: 1px dashed rgba(184,159,212,0.12);
+}
+.steps li:last-child { border-bottom: none; }
+.steps li::before {
+  content: attr(data-n);
+  position: absolute;
+  left: 0;
+  font-size: 10px;
+  color: var(--rose-deep);
+  font-weight: 500;
+  top: 7px;
+}
+.recipe-why {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, rgba(232,223,245,0.3), rgba(245,214,224,0.3));
+  border-radius: 12px;
+  font-size: 11px;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+.recipe-why strong { color: var(--purple-deep); }
+
+/* weight log */
+.weight-input-wrap {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.weight-input-wrap input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid rgba(184,159,212,0.3);
+  border-radius: 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--beige);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.weight-input-wrap input:focus { border-color: var(--purple); }
+.weight-input-wrap button {
+  padding: 10px 18px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, var(--blush), var(--lavender));
+  color: var(--purple-deep);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.weight-input-wrap button:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(184,159,212,0.3); }
+.log-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(184,159,212,0.15);
+}
+.log-row:last-child { border-bottom: none; }
+.log-date { font-size: 11px; color: var(--text-light); }
+.log-kg { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--text); }
+.log-diff { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px; }
+.log-diff.down { background: rgba(168,213,181,0.3); color: var(--success-deep); }
+.log-diff.up { background: rgba(245,214,224,0.5); color: var(--rose-deep); }
+.goal-bar-wrap {
+  height: 10px;
+  background: rgba(184,159,212,0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0 6px;
+}
+.goal-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--rose), var(--purple));
+  border-radius: 10px;
+  transition: width 0.6s ease;
+}
+.goal-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-light); }
+
+/* bottom nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(255,250,246,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(184,159,212,0.15);
+  display: flex;
+  padding: 8px 0 12px;
+  z-index: 100;
+}
+.bot-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  color: var(--text-light);
+  padding: 6px 4px;
+  transition: all 0.2s;
+}
+.bot-btn .icon { font-size: 20px; transition: transform 0.2s; }
+.bot-btn.active { color: var(--purple-deep); }
+.bot-btn.active .icon { transform: scale(1.15); }
+
+/* note box */
+.note-box {
+  background: linear-gradient(135deg, rgba(232,223,245,0.35), rgba(245,214,224,0.35));
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--text-soft);
+  line-height: 1.6;
+  margin-top: 8px;
+  border: 1px dashed rgba(184,159,212,0.2);
+}
+
+/* divider */
+.soft-divider { height: 1px; background: rgba(184,159,212,0.12); margin: 8px 0; }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  color: var(--purple-deep);
+  margin-bottom: 14px;
+}
+.section-title span { font-style: italic; color: var(--rose-deep); }
+
+@media (max-width: 380px) {
+  .app { padding: 0 12px 100px; }
+  .hero h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="hero">
+    <div class="hero-petal">🌸</div>
+    <h1>my <em>glow up</em> tracker</h1>
+    <p>50 kg → 42 kg · kathmandu summer 2025</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-pill">
+      <div class="stat-num">1,350</div>
+      <div class="stat-lbl">cal goal</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-num" id="stat-days">0</div>
+      <div class="stat-lbl">days done</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-num" id="stat-lost">0.0</div>
+      <div class="stat-lbl">kg lost</div>
+    </div>
+  </div>
+
+  <div class="nav" id="top-nav">
+    <button class="nav-btn active" onclick="switchTab('today')">✦ today</button>
+    <button class="nav-btn" onclick="switchTab('meals')">meal chart</button>
+    <button class="nav-btn" onclick="switchTab('schedule')">schedule</button>
+    <button class="nav-btn" onclick="switchTab('recipes')">recipes</button>
+    <button class="nav-btn" onclick="switchTab('weight')">weight log</button>
+  </div>
+
+  <!-- TODAY -->
+  <div class="section active" id="today">
+    <div class="card">
+      <div class="progress-wrap">
+        <div class="ring-wrap">
+          <svg width="64" height="64" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(184,159,212,0.15)" stroke-width="6"/>
+            <circle cx="32" cy="32" r="26" fill="none" stroke="url(#ringGrad)" stroke-width="6"
+              stroke-linecap="round" stroke-dasharray="163.4" id="ring-prog" stroke-dashoffset="163.4"/>
+            <defs>
+              <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#e8a0b4"/>
+                <stop offset="100%" stop-color="#b89fd4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="ring-pct" id="ring-pct">0%</div>
+        </div>
+        <div class="prog-info">
+          <div class="prog-title">today's habits</div>
+          <div class="prog-sub" id="prog-sub">start checking off your day ✨</div>
+        </div>
+      </div>
+      <div id="checklist"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">💧 water today</div>
+      <div class="card-sub">goal: 10–12 glasses</div>
+      <div class="water-grid" id="water-drops"></div>
+      <div class="water-label">you've had <span id="water-count">0</span> glasses · keep going 🌊</div>
+    </div>
+
+    <button onclick="resetToday()" style="width:100%; padding:11px; border-radius:14px; border:1px dashed rgba(184,159,212,0.4); background:transparent; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--text-light); cursor:pointer; margin-top:4px;">reset today ↺</button>
+  </div>
+
+  <!-- MEALS -->
+  <div class="section" id="meals">
+    <div class="day-nav">
+      <button onclick="prevDay()">‹</button>
+      <div class="day-label" id="day-label">Monday</div>
+      <button onclick="nextDay()">›</button>
+    </div>
+    <div class="day-dots" id="day-dots"></div>
+    <div id="meal-list"></div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <div class="section" id="schedule">
+    <div class="section-title">daily <span>routine</span></div>
+    <div class="card">
+      <div class="timeline" id="timeline-content"></div>
+    </div>
+    <div class="note-box">⚠️ waking up at 7am is the hardest part. everything else follows from it. no skipping breakfast.</div>
+  </div>
+
+  <!-- RECIPES -->
+  <div class="section" id="recipes">
+    <div class="section-title"><span>simple</span> recipes</div>
+    <div id="recipe-list"></div>
+  </div>
+
+  <!-- WEIGHT LOG -->
+  <div class="section" id="weight">
+    <div class="section-title">weight <span>journey</span></div>
+    <div class="card">
+      <div class="card-title">log your weight 🌸</div>
+      <div class="card-sub">every monday · same time · after bathroom</div>
+      <div class="weight-input-wrap">
+        <input type="number" id="w-input" placeholder="e.g. 49.5" step="0.1" min="30" max="120"/>
+        <button onclick="logWeight()">add ✦</button>
+      </div>
+      <div id="weight-log-entries"><p style="font-size:12px;color:var(--text-light);">no entries yet. log every monday morning 🌙</p></div>
+    </div>
+    <div class="card">
+      <div class="card-title">goal progress</div>
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
+        <span style="font-size:12px; color:var(--text-soft);">start: 50 kg</span>
+        <span style="font-family:'Playfair Display',serif; font-size:18px; color:var(--purple-deep);" id="curr-w">— kg</span>
+        <span style="font-size:12px; color:var(--text-soft);">goal: 42 kg</span>
+      </div>
+      <div class="goal-bar-wrap">
+        <div class="goal-bar" id="goal-bar" style="width:0%"></div>
+      </div>
+      <div class="goal-labels">
+        <span>0 kg</span>
+        <span id="lost-label">0 / 8 kg lost</span>
+        <span>8 kg</span>
+      </div>
+    </div>
+    <div class="note-box">🌸 0.5–1 kg per week is healthy. 8 kg takes 8–16 weeks. no shortcuts, no crash diets. just consistency.</div>
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <button class="bot-btn active" onclick="switchTab('today')" id="bot-today">
+    <span class="icon">✦</span><span>today</span>
+  </button>
+  <button class="bot-btn" onclick="switchTab('meals')" id="bot-meals">
+    <span class="icon">🍱</span><span>meals</span>
+  </button>
+  <button class="bot-btn" onclick="switchTab('schedule')" id="bot-schedule">
+    <span class="icon">🕐</span><span>schedule</span>
+  </button>
+  <button class="bot-btn" onclick="switchTab('recipes')" id="bot-recipes">
+    <span class="icon">🌿</span><span>recipes</span>
+  </button>
+  <button class="bot-btn" onclick="switchTab('weight')" id="bot-weight">
+    <span class="icon">🌸</span><span>weight</span>
+  </button>
+</div>
+
+<script>
+const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+let currentDay = 0;
+
+const mealPlan = {
+  Monday:[
+    {type:'b',time:'8:00 am · Breakfast',name:'Egg bhurji + cucumber slices',desc:'2 scrambled eggs with onion, tomato, green chilli. 5 cucumber slices on side. No bread.',tags:['high protein','skin healing','10 min']},
+    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + spinach tarkari + raita',desc:'1 bowl rice only. Spinach dal (iron boost). Cucumber tomato raita on side. No refill.',tags:['iron rich','filling','balanced']},
+    {type:'s',time:'4:00 pm · Snack',name:'4 almonds + watermelon',desc:'Pre-walk fuel. Almonds + 1 cup watermelon. Critical if you have low BP.',tags:['pre-walk','hydrating','low cal']},
+    {type:'d',time:'7:30 pm · Dinner',name:'Stir fried cabbage + 2 rotis',desc:'Cabbage stir fry with lemon finish. 4 cucumber slices on side. 2 small rotis only.',tags:['light','fat burning','easy']},
+  ],
+  Tuesday:[
+    {type:'b',time:'8:00 am · Breakfast',name:'Curd + banana + 4 almonds',desc:'Small bowl dahi with 1 banana mashed in. 4 almonds on side. Quick and filling.',tags:['gut health','quick','protein']},
+    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + beans tarkari',desc:'1 bowl rice, masoor dal, green beans dry tarkari. Add tomato salad with lemon.',tags:['fiber','filling','iron']},
+    {type:'s',time:'4:00 pm · Snack',name:'Watermelon-lemon cooler',desc:'Blended watermelon + lemon + black salt. Replaces milk tea + biscuits completely.',tags:['hydrating','zero sugar spike','skin']},
+    {type:'d',time:'7:30 pm · Dinner',name:'Karela-tomato fry + small rice',desc:'Karela dry fry with a tiny pinch of sugar + lemon to balance bitterness. Half bowl rice.',tags:['blood sugar','acne fighter','light']},
+  ],
+  Wednesday:[
+    {type:'b',time:'8:00 am · Breakfast',name:'2 boiled eggs + papaya',desc:'2 boiled eggs with salt and pepper. 1 cup ripe papaya slices. Clean and easy.',tags:['protein','digestion','light']},
+    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + cauliflower tarkari',desc:'Rice + dal + dry cauliflower with cumin and tomato. Raw tomato + cucumber side.',tags:['filling','light oil','balanced']},
+    {type:'s',time:'4:00 pm · Snack',name:'Lemon tea + 4 almonds',desc:'Your lemon tea is fine here. Just replace biscuits with almonds. That is the only change.',tags:['simple swap','satisfying']},
+    {type:'d',time:'7:30 pm · Dinner',name:'Tomato egg soup + roti',desc:'Beat 2 eggs into simmering tomato-onion broth. Salt, turmeric, garlic. 1–2 rotis.',tags:['warm','light','interesting']},
+  ],
+  Thursday:[
+    {type:'b',time:'8:00 am · Breakfast',name:'Curd with cucumber + boiled egg',desc:'Plain dahi with sliced cucumber + salt + jeera powder. 1 boiled egg on the side.',tags:['cooling','gut health','protein']},
+    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + mixed veg tarkari',desc:'Whatever cheap vegetable is fresh at market today. Season simply. Raita on side.',tags:['flexible','market fresh','balanced']},
+    {type:'s',time:'4:00 pm · Snack',name:'Papaya with lemon + black salt',desc:'1 cup ripe papaya. Summer perfect. Great for digestion, skin, and kidney health.',tags:['digestive','skin','summer']},
+    {type:'d',time:'7:30 pm · Dinner',name:'Spinach-garlic sauté + dal + roti',desc:'Spinach sautéed with garlic, tomato. Small bowl dal. 2 rotis. Iron-packed dinner.',tags:['iron boost','low BP help','light']},
+  ],
+  Friday:[
+    {type:'b',time:'8:00 am · Breakfast',name:'Egg bhurji + tomato salad',desc:'Egg bhurji as usual. Sliced tomato with lemon and salt on side. Energizing start.',tags:['protein','skin','10 min']},
+    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + beans or cabbage tarkari',desc:'Normal dal bhat. Focus on portions — 1 bowl rice, no second serving, eat slowly.',tags:['portion control','normal Nepali meal']},
+    {type:'s',time:'4:00 pm · Snack',name:'Watermelon + 4 almonds',desc:'Cooling snack before your walk. Keeps BP stable and energy up.',tags:['pre-walk','hydrating']},
+    {type:'d',time:'7:30 pm · Dinner',name:'Cabbage stir fry + cucumber raita',desc:'Hot cabbage fry and cold raita together — contrast is so good. 1–2 rotis optional.',tags:['fresh','light','easy']},
+  ],
+  Saturday:[
+    {type:'b',time:'8:00 am · Breakfast',name:'Banana curd smoothie',desc:'1 banana + small bowl curd + 1 glass water blended. No sugar. Thick and filling.',tags:['quick','energy','gut health']},
+    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + green leafy tarkari',desc:'Whatever green is cheap — spinach, methi, mustard saag. With dal and 1 bowl rice.',tags:['iron','minerals','seasonal']},
+    {type:'s',time:'4:00 pm · Snack',name:'1 milk tea allowed 🍵',desc:'Saturday treat — 1 cup milk tea is fine. But NO biscuits. Replace with 4 almonds or peanuts.',tags:['1 tea ok','no biscuits','flexible']},
+    {type:'d',time:'7:30 pm · Dinner',name:'Karela fry + small rice + dal',desc:'Lighter dinner. Karela fry, small bowl rice, watery dal. Or just soup if you prefer.',tags:['blood sugar','light','good for skin']},
+  ],
+  Sunday:[
+    {type:'b',time:'8:00 am · Breakfast',name:'2 boiled eggs + watermelon',desc:'Sunday easy breakfast. Boil 2 eggs. Cut watermelon. Done in 5 min. Fresh start.',tags:['easy','hydrating','protein']},
+    {type:'l',time:'1:00 pm · Lunch',name:'Sunday full dal bhat — enjoy it',desc:'Eat your full Sunday lunch normally. Still 1 bowl rice only — but enjoy every bite.',tags:['enjoy','no guilt','normal']},
+    {type:'s',time:'4:00 pm · Snack',name:'Small mango treat 🥭',desc:'3–4 mango slices only. Not half a mango. This is your weekly sweet treat. Savour it.',tags:['weekly treat','small portion','mango season']},
+    {type:'d',time:'7:30 pm · Dinner',name:'Big salad bowl + dal + roti',desc:'Tomato, cucumber, onion, lemon, salt — big fresh salad. Dal. 1–2 rotis. Light reset.',tags:['light','fresh','reset for week']},
+  ],
+};
+
+const mealColors = {b:'tag-r', l:'tag-p', s:'tag-a', d:'tag-g'};
+
+const schedule = [
+  {time:'7:00 am',text:'<strong>Wake up.</strong> 2 glasses lukewarm water + pinch salt + lemon. Before your phone.'},
+  {time:'8:00 am',text:'<strong>Breakfast.</strong> Do not skip this. See meal chart. Eating breakfast starts your metabolism.'},
+  {time:'10:30 am',text:'1 glass water. Light movement — walk around home 10 min if possible.'},
+  {time:'1:00 pm',text:'<strong>Lunch.</strong> Dal bhat tarkari. 1 bowl rice max. Eat slow. Put your phone down while eating.'},
+  {time:'3:30 pm',text:'1 glass water. Get changed for your walk.'},
+  {time:'4:00 pm',text:'<strong>Pre-walk snack.</strong> 4 almonds + watermelon or papaya slice. Non-negotiable for low BP.'},
+  {time:'5:00–6:30 pm',text:'<strong>Evening walk.</strong> 90 min total. Week 1 — start with 45 min. Build up week by week.'},
+  {time:'6:30 pm',text:'1–2 glasses water after walk. Rest 20 min before dinner.'},
+  {time:'7:30 pm',text:'<strong>Dinner.</strong> Lighter than lunch. Fresh, tasty recipes. See recipes tab.'},
+  {time:'9:00 pm',text:'1 cup lemon tea or warm water. Kitchen closed after this. 🚫'},
+  {time:'10:00 pm',text:'<strong>Sleep.</strong> 7–8 hours. No scrolling in bed. Good sleep = fat loss.'},
+];
+
+const recipes = [
+  {color:'pink',emoji:'🥬',name:'Stir fried cabbage',note:'Dinner star · 10 min · very low cal',steps:['Heat ½ tsp mustard oil. Add ¼ tsp jeera — let it splutter.','Add 2 cups shredded cabbage. Stir on high flame for 2 min.','Add 1 chopped tomato, pinch turmeric, salt, red chilli powder.','Cook 5 min on medium. Keep it slightly crunchy — do not overcook.','Squeeze lemon at end. Serve with 4–5 cucumber slices on the side.'],why:'<strong>Why it works:</strong> cabbage is filling, fat-burning, and almost zero calories. The crunch makes it feel satisfying.'},
+  {color:'purple',emoji:'🥒',name:'Cucumber-tomato raita',note:'Side dish for lunch · 5 min · gut healing',steps:['Grate 1 cucumber. Squeeze out water gently.','Mix into 3 tbsp plain dahi. Add salt + roasted jeera powder + coriander.','Add sliced tomato. Stir. Eat immediately — don\'t let it sit.'],why:'<strong>Replace your pickle with this.</strong> Better digestion, skin, and gut health. Goes perfectly beside dal bhat.'},
+  {color:'mint',emoji:'🥚',name:'Egg bhurji (Nepali style)',note:'Breakfast · high protein · 5 min',steps:['Heat ½ tsp oil. Add chopped onion + green chilli + tomato. Sauté 2 min.','Beat 2 eggs and pour in. Scramble on medium heat.','Add salt, turmeric, fresh coriander leaves. Done.','Eat with 4–5 cucumber slices. No bread needed.'],why:'<strong>2 eggs = 12g protein.</strong> Keeps you full until 1pm. Stops all mid-morning cravings. The most important meal.'},
+  {color:'peach',emoji:'🌿',name:'Karela-tomato fry',note:'Dinner · blood sugar control · acne fighter',steps:['Slice karela thin. Rub salt all over. Rest 10 min. Squeeze out water — removes 80% bitterness.','Heat ½ tsp oil. Fry onion slices until golden.','Add karela + 1 tomato + turmeric + salt. Cook on medium.','Add tiny pinch of sugar + squeeze of lemon. This is the trick for taste.','Cook until edges go slightly crispy. Serve hot.'],why:'<strong>Controls blood sugar spikes</strong> — which directly reduces belly fat and nodular acne. Make this 2–3 times a week.'},
+  {color:'pink',emoji:'🍅',name:'Tomato egg soup',note:'Light dinner · warming · 10 min',steps:['Sauté chopped onion + 2 garlic cloves + 2 tomatoes in ½ tsp oil.','Add 2 cups water. Bring to gentle boil.','Beat 2 eggs and slowly pour in while stirring — they cook in ribbons.','Season with salt, pepper, turmeric. Fresh coriander on top.','Eat with 1–2 small rotis.'],why:'<strong>Warm, filling, very light</strong> — perfect summer dinner that doesn\'t sit heavy. Good for skin and digestion.'},
+  {color:'mint',emoji:'🥬',name:'Spinach-iron dal',note:'Lunch or dinner · low BP helper · iron boost',steps:['Cook your normal masoor dal until soft.','When almost done, add 2 big handfuls of roughly chopped spinach.','Cook 3–4 min more. Add salt, turmeric, 1 crushed garlic clove.','Tiny tempering: ¼ tsp oil + jeera + dried chilli poured on top.'],why:'<strong>Directly helps</strong> low BP, dizziness, irregular periods, and low energy. Make this 3–4 times a week minimum.'},
+  {color:'purple',emoji:'🍉',name:'Watermelon-lemon cooler',note:'4pm snack · replaces milk tea + biscuits',steps:['Blend 2 cups watermelon chunks — no added water needed.','Add squeeze of lemon + tiny pinch of black salt.','Drink immediately. Do not strain — keep the fibre.'],why:'<strong>Replaces your milk tea + biscuit slot completely.</strong> 95% hydration, zero sugar spike, great for skin and kidneys.'},
+];
+
+const checkItems = [
+  {text:'drank 2 glasses water on waking 💧', icon:'💧'},
+  {text:'ate breakfast — did not skip 🍳', icon:'🍳'},
+  {text:'lunch: 1 bowl rice only, no refill 🍚', icon:'🍚'},
+  {text:'drank water before each meal', icon:'💧'},
+  {text:'no biscuits at 4pm snack 🚫', icon:'🚫'},
+  {text:'ate pre-walk snack (almonds/fruit) 🌿', icon:'🌿'},
+  {text:'completed evening walk 👟', icon:'👟'},
+  {text:'drank water after walk 💧', icon:'💧'},
+  {text:'dinner was lighter than lunch 🥗', icon:'🥗'},
+  {text:'no food after 9pm 🌙', icon:'🌙'},
+];
+
+let checks = JSON.parse(localStorage.getItem('checks') || '[]') || new Array(10).fill(false);
+if (checks.length !== 10) checks = new Array(10).fill(false);
+let water = parseInt(localStorage.getItem('water') || '0');
+let weightLog = JSON.parse(localStorage.getItem('wlog') || '[]');
+let daysDone = parseInt(localStorage.getItem('daysDone') || '0');
+
+function save() {
+  localStorage.setItem('checks', JSON.stringify(checks));
+  localStorage.setItem('water', water);
+  localStorage.setItem('wlog', JSON.stringify(weightLog));
+  localStorage.setItem('daysDone', daysDone);
+}
+
+function switchTab(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.bot-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(name).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => { if(b.getAttribute('onclick').includes(name)) b.classList.add('active'); });
+  const botBtn = document.getElementById('bot-'+name);
+  if(botBtn) botBtn.classList.add('active');
+}
+
+function renderChecklist() {
+  const done = checks.filter(Boolean).length;
+  const pct = Math.round((done / checkItems.length) * 100);
+  const circ = 163.4;
+  const offset = circ - (circ * pct / 100);
+  document.getElementById('ring-prog').style.strokeDashoffset = offset;
+  document.getElementById('ring-pct').textContent = pct + '%';
+  const msgs = ['start checking off your day ✨','keep going! you got this 🌸','halfway there! 💪','almost done! 🌟','perfect day! 🎉'];
+  document.getElementById('prog-sub').textContent = msgs[Math.floor(done/3)] || msgs[4];
+
+  const el = document.getElementById('checklist');
+  el.innerHTML = checkItems.map((item,i) => `
+    <div class="check-item" onclick="toggleCheck(${i})">
+      <div class="check-box ${checks[i]?'checked':''}">
+        ${checks[i]?'✓':''}
+      </div>
+      <div class="check-text ${checks[i]?'done':''}">${item.text}</div>
+    </div>
+  `).join('');
+
+  document.getElementById('stat-days').textContent = daysDone;
+}
+
+function toggleCheck(i) {
+  checks[i] = !checks[i];
+  const done = checks.filter(Boolean).length;
+  if(done === checkItems.length) daysDone++;
+  save();
+  renderChecklist();
+}
+
+function renderWater() {
+  const el = document.getElementById('water-drops');
+  el.innerHTML = Array.from({length:12},(_,i) => `
+    <button class="drop-btn ${i<water?'filled':''}" onclick="tapWater(${i})">💧</button>
+  `).join('');
+  document.getElementById('water-count').textContent = water;
+}
+
+function tapWater(i) {
+  water = (i < water) ? i : i + 1;
+  save();
+  renderWater();
+}
+
+function resetToday() {
+  if(confirm('Reset today\'s checklist and water? 🌸')) {
+    checks = new Array(10).fill(false);
+    water = 0;
+    save();
+    renderChecklist();
+    renderWater();
+  }
+}
+
+function renderMeals() {
+  const day = days[currentDay];
+  document.getElementById('day-label').textContent = day;
+  const dots = document.getElementById('day-dots');
+  dots.innerHTML = days.map((_,i) => `<div class="day-dot ${i===currentDay?'active':''}"></div>`).join('');
+  const meals = mealPlan[day];
+  document.getElementById('meal-list').innerHTML = meals.map(m => `
+    <div class="card">
+      <div class="meal-time-tag">${m.time}</div>
+      <div style="display:flex; gap:10px; align-items:flex-start; margin-top:4px;">
+        <div class="meal-dot ${m.type}" style="margin-top:6px;"></div>
+        <div style="flex:1;">
+          <div class="meal-name">${m.name}</div>
+          <div class="meal-desc">${m.desc}</div>
+          <div class="meal-tags">${m.tags.map(t=>`<span class="tag ${mealColors[m.type]}">${t}</span>`).join('')}</div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function nextDay() { currentDay=(currentDay+1)%7; renderMeals(); }
+function prevDay() { currentDay=(currentDay+6)%7; renderMeals(); }
+
+function renderSchedule() {
+  document.getElementById('timeline-content').innerHTML = schedule.map(s => `
+    <div class="tl-item">
+      <div class="tl-time">${s.time}</div>
+      <div class="tl-text">${s.text}</div>
+    </div>
+  `).join('');
+}
+
+function renderRecipes() {
+  document.getElementById('recipe-list').innerHTML = recipes.map(r => `
+    <div class="recipe-card ${r.color}">
+      <div class="recipe-emoji">${r.emoji}</div>
+      <div class="recipe-name">${r.name}</div>
+      <div class="recipe-note">${r.note}</div>
+      <ol class="steps">
+        ${r.steps.map((s,i)=>`<li data-n="${i+1}.">${s}</li>`).join('')}
+      </ol>
+      <div class="recipe-why">${r.why}</div>
+    </div>
+  `).join('');
+}
+
+function logWeight() {
+  const val = parseFloat(document.getElementById('w-input').value);
+  if(isNaN(val)||val<30||val>120) return;
+  const d = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'2-digit'});
+  weightLog.unshift({date:d, kg:val});
+  document.getElementById('w-input').value='';
+  save();
+  renderWeightLog();
+}
+
+function renderWeightLog() {
+  const el = document.getElementById('weight-log-entries');
+  if(!weightLog.length) {
+    el.innerHTML='<p style="font-size:12px;color:var(--text-light);">no entries yet. log every monday morning 🌙</p>';
+    document.getElementById('curr-w').textContent='— kg';
+    return;
+  }
+  el.innerHTML = weightLog.map((e,i)=>{
+    const prev = weightLog[i+1];
+    let diffHtml='';
+    if(prev){
+      const d=(e.kg-prev.kg).toFixed(1);
+      diffHtml=`<span class="log-diff ${d<=0?'down':'up'}">${d<=0?d:'+'+ d} kg</span>`;
+    }
+    return `<div class="log-row"><span class="log-date">${e.date}</span><span class="log-kg">${e.kg} kg</span>${diffHtml}</div>`;
+  }).join('');
+  const latest=weightLog[0].kg;
+  const lost=Math.max(0,50-latest);
+  document.getElementById('curr-w').textContent=latest+' kg';
+  document.getElementById('goal-bar').style.width=Math.min(100,(lost/8)*100)+'%';
+  document.getElementById('lost-label').textContent=`${lost.toFixed(1)} / 8 kg lost`;
+  document.getElementById('stat-lost').textContent=lost.toFixed(1);
+}
+
+renderChecklist();
+renderWater();
+renderMeals();
+renderSchedule();
+renderRecipes();
+renderWeightLog();
+</script>
+</body>
+</html>
