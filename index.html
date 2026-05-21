@@ -1,968 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>✿ my glow up tracker</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Journey</title>
+<link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wgARCALgAuADASIAAhEBAxEB/8QAGwABAQACAwEAAAAAAAAAAAAAAAEGBwIEBQP/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/9oADAMBAAIQAxAAAAHaAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACpSAAAAAAAAAAAAAAAAAAAAAFIsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSKIolAAAABKIoiiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFIoAAAAAAAAAAAAiiKIogAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAAABKIAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAiiUEsAAAAAAAAAAAAAAAAAAAAAKAAAAAAsFlEUixQQAAAAAFFSAAAAAAAgAAAAAAAAAAAAAAAAAAAFlAAABSKll6WHmeTU/UNx3TXZXbrDsqT7yrIAAAsB5cerNeeGu3eWmPqu42rMlTLnDmRZYAAAAAlgAAAAAAAAAAAAAAAAAABQAAAUSzD+vhEff4d7YK687O2eVmqOluPhLpLuZ5rrOttepp/au8duWWCkpKl8E87A3Yl6np7I9NNSdfckrSXDc2KS4rsrVSXdTxvZ1mLLAAAAAIsAAAAAAAAAAAAAAAAAFlAAAFlGN5HqaXyPa8/a0vZ7BZQRYMNzKRo/IuOPzW8HmenrCy0EdPUmU4dNfTa3kZZYsoEAY/rTdWHrhm3tK54uZyriCgAAAEogAAAAAAAAAAAAAAAAFlAAAFlOrp3amo86znPMfyCwICgAjxNUbx1Ivs7B01uSy2VHy+vkLrF0s6lzT6S2KBLCUcVpqLtd/HbdyhmLKAAAAASwAAAAAAAAAAAAAAAAWCgAAA8HV20dW51tj2fG9mxQEKABhGb+RGodualzBdg0sYLm+mjr7f1ft+W8pUQK4chePIoMIwrNMLrdHLjyEpIKAAAAAiwAAAAAAAAAAAAAAAAAoAAPN1BuzTMuxsm19sER8454bl2vmss9zTO2LO8JHG0019PUx1rdzrrnpaizLD5c0z3As2T7kHjd7U6+psjWGz5fty4crKnFNdeJfWt2WEAgsAAAAASwAAAAAAAAAAAAAAAAAqUAAar2phcuK7e0ftU9z4/f5y/Hzu/c61B7vfw7TdzzfTYnLhzMGwXZWt12dgXHoyy5NkM1rr75bjlZHmWnPXT7499fbjK/XnQr1fr4npp9/E9vAbnENha73NXaACJYBQAAACWAAAAAAAAAAAAAAAAACwUCyk6/YS6U9b1cQXd7G8lk+Pz7HymurqfceBnDYusNn6y5ceUYtrjZWtVev42Z53lPDlwz25SFxfFdrYleeJdvh6Nnn/LJ+5NYT9cw8Gzv478vleeRbQ8L3tYAASwCwAAAAQAAAAAAAAAAAAAAAAAWCgWUgjqak2zq9eO2tKbNjJOPP5rZ9Ik5AvG18cRzNGle5kmFTe1eesPdz1zG4f5y5riuP8bjMsn1jsyXkkm+XG1NZ9zp/Xpx25eHO4sABLECgAAAAEsAAAAAAAAAAAAAAAAAKBYL4LW0v06Xo5rGLbP58hKJQCooio44Zmo0z1N39JdN/XbXdXWfsZ0TSnse3hU3tHsatyHHTMMS6PhWOHu+5rn4uytO+nZtZ8PvcgJYgUAAAAAlgAAAAAAAAAAAAAAKQFABOj3dVZvU5/LZ0vP1ZbAAFlAAAEsAAAJjGUQ1F5e8esumcj2J9z4/ZUxDAd2a/XpbM0nnJmosSwCgQAAABLAAAAAAAAAAAAAABZRLCgWdOMbwT697OspzDh9LEoAAWUCgAEqIoiwJQAKiiUh8/oNSeZtPU67j7+rdpWJSQUAAAABAAAAAAAAAAAAAAALKACjXewdOy9fZ+CbWzednKyKIAAKqBYKgqIqCwJUKAQt40qCwJrXZfmmn9q6sy5rYKy4SygAAAAIAAAAAAAAAAAAAABZQBVPL1FszWOdZzm2O5IcrCWJVQVBU4H0fP6AAAQAlhTqHbmK5Cdl8+tNdy9Ctd51vvccrKkWGpuXp421uh8/pcJZQAAAACWAAAAAAAAAAAAAAAFBUph+vM+wHO9uev5/oM2XiThPjN/WfCNdnn1Psnja/9zHri7T1VsZMiURYYx5HQ8Vdu9vyvUSyw6Gq9l6vWev5PcXanW+vwz1ria5ffr8rn0L8fteKypgGIZ5gLW5+x5/oXCWUAQUAACUQAAAAAAAAAAAAAAoAspheAbK1tne2/YxPLEcOfyj5dfn8p2kGr9PlTy8B239Lw1Ps/ufW5LBx5YQdLxpzXNvf1N7xsGCcMCz+rqfLsn6018vnz4TsEvK8bZ2e11O1rjbDGE4JlONzW3PQ+X13hASwAWUAAEAAAAAAAAAAAAAFlAAAPP0/vDUU16uytJbil7Xy+vCTp/L7/ABnfgGry480+va63avLnZbzQJjeSjF8g7CvK7faQSgE63a+c10OH04Z78aquU+lz9/vx5a43jfATAPt5eYxndN5gIACgAASiAAAAAAAAAAAAAUAAAGG5l8pdI5lj/Szvd/Hz/Ruev1+78Z06r7Sb+fPl9kv3l1xthACCwKlAAEo6vw9D5zp0XYTfy7N+l50lxw1VlWv5btvENhUJrIEABQAAAQAAAAAAAAAAACygAAAAGNa13drrOvN2ppT3Zdoz5faxZyQWggAAAAAABKEogAHkXWcvy5fDZa+x2U1gKAgAKlAAIAAAAAAAAAAAACgAAAALB8/ojWmO7rwGb8HY+qLG7br3Lrn1ZOVAVBUFQCkURRABAhZ8fBMixTF/Hl7Hw+uwl6+WxvIIAgAALBUFgAAAAAAAoIAAAABUoAAAAAAsRjeBbi+a6UmxsamvH9jx+tLnPqaxibk++luRufnpXmm6rprtVtxqaG2vlqvpm2uem4bl+eneMbX8zXMM18XxfoTj3/cMU9/O/V1Oj30oEAQAAAAAAAAAAAAAUEAAAAAWCgAAAAAAWC3iidH0Bjfm5sXW/Q2uNTctrjVDa41PNsjVLaw1PNsjU332kMB9HLR4vf7ZOPKKsBKIAAAAAAAAAAAAAAAFABAAAAAFlAAAAAAAAAAALAqCkLAAsAAAABAAAAAAAAAAAAAAAABQAQAAAAACpQAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAABQQAAAAAAACgAAAAAAAAAAAAAAAAAASwAAAAAAAAAAAAAAAABQQAAAAAAABYKAAAAgqUAQAFgoAAAAAABAAAAAAAAAAAAAAAAAAFBAAAAAAAAAFgoAAEsAAAAAAAALAAAWAAAAAAAAAAAAAAAAAAAFBAAAAAAAAAAALAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwKACAAWCpSAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUiiKIsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABSKAAAAEsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKAAAAABLBQSiLAAAAAAAAAAAAAAAAD//EAC8QAAEEAQIFAwQBBQEBAAAAAAMAAQIEBRETBhASIFAUMDEVISJANCMkMkFgsDP/2gAIAQEAAQUC/wDF71Wv6Wrf8MeyMEbOZk7zv2ZJ7BXXqCoWQsDepmoSQywK3t27oqzHzBZKdw81vEUbJYoWUsjVTMjmoyjNv+AyWU6HJORJKFY001Cy6+m2FOoaHKtYICdC3G0L2ctkHEpyeTxjKbxx1mTSx9lk9U7KUZR5U7hqsqN0duHnsxkvvqqlUtqVPFhAzRZuWieLOshi4FjJnhOnZlVLWPGwLvyl5qw5SeT0687ZqlMVaHLRkSuMjXMO2k4PCQiTATG3Y2xeczNvYB/vHUXtkCKIYd2cobkWWHuemMz6t22jMAFgsjlEORiY+pGqHuyVCNmJIvCdM71LIpsQfmn+MkbetiG5SUq7Vg+xma3p7OqxhN2n28QWNZrB09ofsZyjuQ11XDx3eHmrUuivJ9X4eBq/s5at6iq64dsOxOwkuiFou6ekLftRbpb2HbVsoD093DE6Lvmst/AZYRtKPsusoDYuUC7Nxvu3PLT6KK4er/j7XEcdD030tN8eZzU+ihBYhv7H2uIhfjJYqx6inz4isfZljx7VT2uJW/pgfQ7fHmc3Drx4/jEPrR9rKi3acmXDZdCcpv0xtkc1mgPctt8dmrd3Ej/iBtbDfHmci2tKHxgJ9VPlqndXcnOBMbea1Dsk2rW4bdnGk2rrcsmTbpLh0GvbkLsa0BXCyOP/AB7M/PquUW6r3mix6hzj0E4dLobk6/1lg9BQGlXNTsRsB7M4Ppu/D15dQClgJszeieOixF4YBDLAjcrJmAExZGLQBIxofaPOT9MbZd6zgBblzzeYFtX6Bdm233ZSTK8DeEaLwnhbWyfs4jgnVKw0MZctzsl5iLMUqeYfWMmnHM2ZTOsQDZrSUeeXNtUn+zcOh6Knm+IwPIbOsRY36qdPyztZN9ljjtYrc+IG/s055emZlSx243oQaFxQ3R6hQuqVuddjS6yYcMSnkSEGldAya/XQywJy4gP1F0651obYfNnGxRGG4TYmz6eyz6snblYExgkg458Pn27HPiD+Hyxwd43w2q1Ts0mv0ulPyCSQkQk5vygScHDljRiWbkJgq29c87xDW6ZrCW94CdaJll6ztYpVS77fHLPR1pJ1gtNt+z5WRo/nty6h0jSUMVJ1HFDU8SNWqJAcvvJ8PV9LV87aCxw2606pqNh65hEYo+bxZ1p2FGxIHw8WY0OmWPt+lIIkTQ5nswCxslOT44sTT7JN1RvjYR8CNi3/AD1mwOvDIW3tmWC6vSJ/ZzdJ9VXtErPHMfZ8ui5ExFKbu/yqRdk8JNOHN/s12e6bEGatcjJpx85kMhCq1gxLE3WNx5LExQYcPadtWv4nqRKxRu8VoowlJVcYY72cSwgaaKldkBBNA0V8LJXtWfljsjOq4SxMPzWTvNVHOTkmAEzzp4mA1GLM3uvFnU6gJpqFdlEQ4rRO2qyeM5CNMUh5Z9LWQmZlj6E7crWHZoTi8Xx12VMgiRMPzFyzGsE5ZHLXDI5aNSFYf6rq9ioGVijYC7/ZR1kqOMIeQRxFBZeh1ssVdeqVn6m8tN2jHI2ntnHCRJ4+pGsL9mQBSUQjj2Os1Q6H+WwV3qby2et9EfhYOp0w8BOLSjkqz1bEJuOdGw1mv5S2eNcJiucuOr+pswZox/V19zKVfVV/uz4a36ex5TiA3WdYmr6ev4PPVNozLEWN6r5Kb9MbRNyxig79vwl8DHradMsATQ/kslPopuuHB/j4XLC2r2Ln0XPJZ2fTUdYGHTR9qU4smnF/dNYGFpZgXWE0DQk6d1qtU0k3bxC39wB+ko31H5HiF/6TrFNpR56rVarVapll7nphkKQiGWY5Y42/W7MjknrkhmyM9YzHFzvG2K5iSLNYo7itk7Yum7OIm/OP+Vb7g8jxF8LH/wAPk6dO61Wq1UXXEWvqY/Cwf8TsyrP63p1WMHt1OeVi8qfKlHqtzftZQfs4i/8AiqD61PI8RN+LrFT66PJ06fsi6y1V7QXHODhDMsqAdivzf4yjxlYi+j1ciLogSJG5SbVruKJGfoz64yh6dS7odnET/iqDaVPI5+GtaS4eJrU5ST90E44yUYRj25W3Pc11W26dtFh5zaz2Oyd0/cPszpOqyNuogm6ReRyA92pJcPl6LHKSfuim7rWNYxK+KjCezDSdAE3CAYe6bJ+4fOT6NeJu2cWPcveSdZMOzcCRxkrFYwU6l3RTfoSb7P2syi3PMWdisuHQ6y8nxDW6hrAWumadSZP2MoN+lOK05syi3OT6NkrPqLDM8nx4PT1fJkgxIXa717EJPCdCw1munTstFotFGP6jxXQulNHszdvbgsFU3CeVzVPfCsbcemcc2JD9+/bjWGUkizrBlYNWEwA+WzNFxTWOyE6kglgaH7t65CtCwedgjM8nxNJqwvLzi045TGyA8XVW2WpOjeFaj+076K9lYjRiyNP7usRj9lvMuzO2TxTxdNrCVLNSgwL1cyZ2f9aRIxVnLVxK3kTWeQRzNPHYyFfzuQxY7Cs1jVn+eQ7BhoWYswQs6yHl681C2Ga3hreGtyK17ZTaKawNbsFuwT2Bsp5GvBEzQIomdRspZIpEnNacqWLNYerVHWh56cIzazhhTRsTZGphJDt65LrktyajZNFNftMvqVtfU7i+p21O0ci65rdmtyaeTvy0WiaKhWLNV8MWarY8AP8AhHjF1OmCaLh68lPBomGsMnxltl9Ntr6ZbX022vpttfTrS+nWl9NtL6bbX062vpttfTLahirToeEm6hhBMh4ytBRrCimZm/8ABo//xAAhEQADAAICAwADAQAAAAAAAAAAARECEDBQEiBAITGQYP/aAAgBAwEBPwH+NE4IQnSU/Y17UpSfeudMf3L2Q+nXE+kW4P1W0PqEQWJ4k2+jXojFC1khaaH06YsjyG6Y7y6inkUTKNlGurpdUf8AiUPrVzrGngNfatpEGuLHTH9i0hby4Mfz6ZfYhiFvLgT2x/emUeQ3eFZHkPLb+tE65MnNC/fSn4IQhCEITdL0lKUpSl/gf//EAB8RAAIDAAMBAQEBAAAAAAAAAAERABBQMDFAIJAhYP/aAAgBAgEBPwH8Z3HwvDV9fXdrBHz1xD3HOP2LGabOMLNuP5GKeDvIUVGxkqiLWZ/MDvNMGaedx+45x/2A9Z8Q9pEfM4sBU4446cccdKLFVKL8Ef/EADYQAAECAwUHAgUDBAMAAAAAAAEAAgMRIRASIjFBIDAyM1BRYRNxQEJSgZEEI2IUYKGwY3KC/9oACAEBAAY/Av8ATHZ/2NOI4BSgCncqsUrmO/K5jvyqRCfdSji6e6nDcCN5iNey/bF0KsVy43flUiO/K473ursYXD3U2mY/sEw4HF3U3uJNmGG5csrgVWGy9Dd9leGeo3XpwTi1Km4zKkwTK5a5ZVYblUEWYXTb9Km04tR18wYB9zZgGHupuF53lUtyRdCEnotcJEIPblqEHsyO4kOYckXOzKuNy1Kkxte+xiYCi79Pn2RDhIoPhmRCn84zHXbrONyqq8AzQawSG360IYxnZcdy3bboh0RiP1QYzMoNHFqdsubSIix9HBNiDLVBzcj1x50FE1jcygwbmbeF9kM7QgjLM2eq/jdufXhjGM7HQT8uXW3u8Ip0Y+w3TvqFRY6AcjUbJd2T3nVMZ+VIbmqcG8Jqm+adbi+1jd28aGqhv8qexENjoxzOW7hu7hQvfrb/ADSxm7ZEHtYw6ih2GwB7myG3xu4R8qH/ANkOtRPFbGbt41zsiQvvaT2T3nuobfO8hN8qGP5IdajDxZLsdmUMZKtHjTZkojfKhu8ytiGx0Y/bZ7v7IFzkNkN+kKCPPW3DuE9vYp8Pvsz0KD2IPbsk/UECmO7hTe4BenCqNTZ6cSnlTY4G1zzoi92qF3IIDYJUR/lOfozrjuzqqG7ZI1Rac1cdwO2Yb/tYx50CvOy0GxOG4tKDf1I/9BTaZhGFPC2zFxHZf3NLC85vPXGRR8udgnxNpsiK37oEZhNdrrsfez0tLL0XhUriwGSqKd7CAcKLu6m7JqqQFzAuYFhcDY2ENKlNYNSmMGg645jsinQzoUJ8LqHZcw6pzTonQjk7LY+9o7BStkVfhCna3AZLE4m2bXEKTq+U57syvUPCzrwjtyOdlx3G3ZvNGaY4NIlsextf32r8P8KUqrhWJ8licVhcVPNtkhmUA7iNT15zHaq47LRNePug5uR2KjZLXZFEwj9kQq8JzV5hmNipVMkaYtmRTgMli+UT6/eiFTlJoysxfbd+tCFNbP2zTssTFRioboVTOwO0QI2JlPcMkHO4TRTbUddkKxOyvRDYHPEoaDWig3cii/8AT59ljYRbRpKqLrUSwzIskatU2m30oR9zbddihoPYZg9bkOYUXPMyVdhhXouJykN9UKsNq5YWFgFrokH8WTaVjYrrcIsnlD7qcE1Ckc13hnMIPYZg9ZL3IxH6oMYpDPU/Dl0PC5VYSPCqCqNJQMUXWINYJAWGLC4tRZcfynf4Uxl1ck5BfwGSDGZlD6tT8VWG1YWNGz68EU1Fn9PENRw9X9Fhq7Oz13jEcugkHIoj5Dkg9mbU14+/VXPdonRHZlBvyjNADIdCI+YZItdmFcdy39VEIZNs/k7PonrN4XZ2CfE2nUyU9/cpoOQr0V7Ci05hFmh6nEPiyI/oz+xqofU5d7Ae+7qQqOG9nEcApAGXdXmGe7YU0+U0+OpMsh+26AbxuU3OKm1xCa457NxgmVjYJIPbrsOfqrzzM2ME8LqbthQTPbqUOyF7bqH2luH2MbsPlbCA77tnvZD9upQ7Ie6BZxtUnNIUmtKa3XZJFga8yKwkG2RRdBq3spemVfice7YLIft1IO7Gwt7Hd1aCqADZMNhkBZlZIcPwN3smjuU0dh1KI3xYWHJ3wJcHSmpvN5SuhTLFgaB8BNRHeVDH36o9umaa8aJrxr0QgcTrHxT7DqgjNzbnYYLjQ5dDmUfpGSDRmUxmuvVC12RToZy0Qc3MJrxnr0L0mcRs9d+Qy6tfZxts/wCM5oOaZg9AmeLQIvfmUIbdU1jdOr+tDGA52XXYoR/wg6GZj46Z4tAr8Qq62pKvO5h6wQ4TCMSDWH27WThnDq1YTJ3b4uqLYNXK88zKkM16sUYz/jrUijF/TZatUirzDIq7+pE/5LDECp8NicAqG+fClwtsuwxMq9ExROu3mYIilFbTvZRYIjlik5fuQ1mQqRAuILiC4htVK4guILiCq8KsQKkyv24f5XFd9lje42UQL8DFdhj79fk4AhThYCqAPHhY2OGzxFcRXEVSK5c4rmrmLmLHEJWZXEVxFZnZwsKnFN0LCwE9z/YlQCqw2qk2rBEWEtcuWuWuWuWuWuWuUuWuWuWuWuWqtAWOIFicSuBUY1UH+ho//8QALBABAAIBAwMDAwQDAQEAAAAAAQARIRAxQVFhcSBQgTBAkaGxwfFg4fCw0f/aAAgBAQABPyH/AMXunUlOp9l2n5ljs/4K07EjinBsJ8TcpqNprmR0ylB2o2njsX1FufpS1Ck9+kZdvJsXhI2OkKivwoZMnJ/gC0W7Q0d8umPGLrL+YXbjxok13o/ImGBkFb8GB1o/B9Jzefgi9ycsAt6RLII8zd5fxqin5wm8FrcqhykN3c9+2jGSbHHq3lZfqcIdxwBQAlEQwakMqTWaOZfCVJEr/dEa6/0PoJmvZR2LzLBA/tIYB1LdlEoi3BGh8VLpVFowbjP3yyh8Y99K+TiO0ypVruziTedYdcPXa9MjkluYlp/CwATI+rj1RfLdnaDvbQ+P3HrGkLZ6wbNgk5o9HqRd7Kz3tUmNeZaQs7epv2cv0EEpyQXKsx2Zh8QQW2qfUzfCC0TH3Q7H0fEJHJCimM7e7w97NriLF1bhldvpACCJh5MR2YDDUlthcd1uij7XcEOwFaHpYNwkMhhBqwJ2773XaN4viH3+fpASnaUGcSJx2DFSNmGuWs1UNodXkqK+gFaeFCWDtmx730yCUeH6eNtm0wybmYHD3oDucrA3Qc4mOc5M5+kPWlJYOyP8XvXfkNj6kafLBTQvBw4am/sLjiXeEwVe5hoHSVn0ZquX6e/m071CGvF7154zYlpzk6MUFxIQFzGxTdelZrZxO2KiX2GyKzTrRVR6y0Pt6S4uzaGwZdo7d6eno1GsO+ce9WbyE76RLI42aqOYRqwabI5OsR7fc6enyYQanhGdqiVhPeBXy3oBGPeIr7ezL0avZiIvavxD4cizxghqKOwXEX2aEvUwY8w964nSo0nSW6YgE2dBFD+MQ2aEU2y14Zx6P3dNjFrkyRrC3QYEOOjNkVgfOnJBZ/8AVM2UZjAisrL8R4zrdh4WjQFuPj3wi8uvCbCQzrkaGYMMwAF2hK3RZBe7K8o6ml6GJKEu+5ZtKrFwJxyEq7irP0InWLFVw8RV91cxv6ExfZvUGMBr8Y6AmxILfFUExQR74f1jU3xaot9IIE2Y6W04jE3C1UtTz+UdXj46MzovMwowUGowESVm5yExYuZbKp6S3fPa3pHZjOnphz7e5gnn+Ye+0E4JGZL4fJqYEuEQ5qMuQu5sXvqjIck30ZLqm2BGEKFMyhw7xzJjpo7zZLwht3GGM94L+cRZgHbUEX36WBXgRV5SbJF/hGmsLjoEfwMCbHoLq9yPFvqjOlJEw7kKmSM3hiNU76TEQS0Ip6LhoFjoBr5kVIw99chDp1lYwgTr1Xu03fRMrnCRLJd8rdbS7l9ph5/MujwEszLvHCP80jJ2JE0IhUoIXKGJtkNoUYTp769zW0Or/Q4JQiMD5eZTCDH0HU3Cxl7B5S4PgpRoQ/EEIvemMGFbG6IHgYQM9okaFuxAbRAIDtV26Q8Xva3o7JGqcqErjy9I+eG4gIQDg+il+kvE+SbpviN2TN/BEAbQAiRQ8tnIo4YYWQ1bnqSosdpYlnv1S76rZ5ikKG5Mst3ghyhY95THwdYvmVg6Q8L6vSCht+oPsBcTyn8MVd8Ql0B7ktU12IkTv7uqUVYsPknKO8vBaflCFLWT3dW6C2LG89CCJcjarf3IgmSKWx8T9DAlaEFmYq9htF+4o8nu6D+0hDCfOpcEPYATsKZSnlcT6msi35TDo+6qXVMd4leT8R3uvIp0FH21PqGKcynDDUke8/gYIlm3ulrMVp3h0N4AKcyh9tR9RjCf8qZSru8j3MFdguM1CgF50MFEPYyYtTHmK3gVMnYfc6P3w05KbtEN/vrl+llSDhS0dWpue5eZo53CXKhrcuXLl6bLvLN/nh+tcgilIAMMpIsvBzrxX6ROoJSXAneAe4kxHfRTdTGGHXqL22RVXXvBi47xvL3pqXpysyBdkxvHoINsMRYpOugZVliYVGXpemvQ5w5ineK32+5LBGGvB9BaDoGizD2JXdEzP3/Qy8MGqIr29X6CQWmZzo/fPSv0rPQBbmLl/wC33LIaLj2r0HFLl6UMMi8p3lwd4gxT4lo+XoYWWo4Iwxekx0RUvhvbU3CxgG3N9kE317TJqV+kdvoNHnVny+cyv9vuJKmhumaM+iOOpCOfr8E/TMPQx3NFXMtvzMd2rSErlb+ob0jTd6O0jHF3AnbMPcsMZyIKUdyW6wanGl9BN/qMvCI2tnE6IeJXBfaDeqKPSIQR0F1sTppgTEGBt7mLEZi6k0m8y7j82DWI+ggh+wug5lSpUCXSg1sRxEW95Qrb3QQtweE4nXmPQAlSpUGgfYM5SMVK1MjDdKCM8eGBZtqIfSF+UfcyOsKZ3kC7RNqS49Gyh30GneWg51YFfZMJioTVDRlCnV8aYk92+COfyQ77kCrbjP8AMGEKx1olEr7t+lqDOXIz8rL0IMWB7sxz0YOIIwmrwoAq/TQ+8TqMDHxDpAI7ICGh67094GIm5DaUyiASEbPM2gujle/3Yi0BGvKuCJHpEQFVsEE7W0MHvLsbHiHpe+A5oROGIiz5IAqzhBDN6OILkPj7W4fYHdlqdpi8D2zQc9v0hB8xx74y1r6hsyxns7TEVTw8RfC+ZQFHvOSD2m9J7wL97P7uf2cH2/JAuya3Lh1kRH/2n9xP7ibefmb8PE2bN0r5VLcAIbvyLCLzQV6EsT7u7CoTryff371wy7d7e0sJBjPhIhzEhcFNlJ/aT+0hwfnmxX5h2Pllf+k/6kV/10gv7qP+3n9/NyT5laCHdhZiX/EZB9M3hZAhRgP8D/XcJ/H6bDTtA5fk0fGOXhgk9t+Z/wBXQs51UF/3n/R1pP7cX/KMGxPBpH7AXzNr3xNkDx/iNfQv/wAA/wD/2gAMAwEAAgADAAAAEPffffffffffffffffffffffffffffffffffffffffffffbfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffffffffffffffffffefffffffffffffffffffffffffffffffffffffffffeffTXfTXffffffffffffffffffffffffffffffffffedXfffffffffffeccfffffffffffffffffffffffffffffXfffffffffffffffffffffffffffffffffffffffffffeXffffffffffffffffffbfebffffffffffffffffffffffVfffffdaWdPffffffOffffffbffffffffffffffffffffbfffecqhVAkfffdfzbCwtfffffffffffffffffffffffffXfffQo2jVopVeYirdwb9ytffffbffffffffffffffffffafffaVXHJLD5VwQygfPqm7m/ffffefffffffffffffffffafffaRwVvOIhH9+vZMPqvnY9fffffXfffffffffffffffffffffY8JDFOOvZtRNum+wl6m/ffffbffffffffffffffffffVffbRGSnuvsFFgw6cbMgjgvfffffVfffffffffffffffffeffaqRHssi0RsZQM3guzeg1/ffffXfffffffffffffffffbfafqNzU+ymfwlu+JsmHyglvffffffffffffffffffffffffaf3NVB2qC9naEOnp0SLgl/fffffVfffffffffffffffffcZSEZw7nKJm5/m0Rx9avil/fffffVffffffffffffffffFbd47vvuvvrlvvuhp/83QrlvPffffXffffffffffffffefFfz4+9vqgMEEstunjPLql3W/ffffafffffffffffffffafuQR28vvvDLDDjnr8trjnh5o3ffffbfffffffffffffffffsVyB1MfOMONOvt+3w6kb57H1fffffVfffffffffffffffdXTp2RyspJvcch1eEUzZ/q2G1bfVffXfffffffffffffffTaUosztLK590bYqaH0f3iL+gX1ffffdfffffffffffffebffVCN8PSUi3+xTrzwwui1FI4a/fVffXfffffffffffffbfffbolHc5rbur3/wD79+ro+114Wn31X3mX33333333333333kz31sPbtl77777777pssMc5f23313233333333333333X3333VsAVvRwwwzjDDxrN3naT3n332313333333z333333n333332+0jzV6tUQRV9MHeWSll//AN99999999998999999t1909999tvDmL3PpVhpmrddf/AP8A/wD9999999999988999999599999999999dNld9dd9959/8AffffffffffffffPPffffffWfffffffffffffffffffbfffffffffffffffffPfffffffffffffffffcfffffffffdfffffffffffffffffPffffffffbdffffbTXfbecccdeddffffffffffffffffffPfffffffffbcefdfffffffffffffffffffffffffffffffPfffffffffffXffffffffffffffffffffffffffffffffffffffffffffffffffffffffbffbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdfffffffffffffffffffffffffffffffffffffffffecffffXfffffffffffffffffffffffffffffffffffffffdfbTffXdfffffffffffffffffff/EACARAQACAgMBAQEBAQAAAAAAAAEAERBAICExQTCQUFH/2gAIAQMBAT8Q/jPWCcyLxWHfCLUvAQSjgQ6wtCG0St4Wx4DUezgEeFEP3fvvFQZ8OV9bpFyInWA5jzeUYEBBWTsj7BHAuCOPMO4Rg4eziKxZiFSmDDv+zyLD7jxLGCiVKO52lYAEd0wRhLyNT7QqiI8eZUTiNsLxfIa8gzC+MLiRfANoLi1+oyXcED7tkOjSH5Era9ah7NgwY5qV+NMSLRTJ5tec2Y0x4VkhDRKhsgpweR2CeY+wXBKiXBTxciDDPeDzZMR9i7yY++ZKmDLioitw9G0Pc9h1DlYBLH419MpLusBFtr5G0uXL5XzC4tbv/SNoj+lQhpFveKSs7Ssc+3AVOogln/DtlpeWlpaWlor/AAO//8QAIREAAwACAwADAQEBAAAAAAAAAAERECEgMUAwQVFQYZD/2gAIAQIBAT8Q/wCM8EF5UqIL/AY3DbbIiIdCd49oiIiHXQnNMvubh+md5YthDw39C1wezpBZXrPgxqoT1j7Ft3l9+7qPl+CnSOnL7Xua0MbEzveXp4ZEw0FRYT37u9C6HhhqY6CeioWBuvCx0vvet4aEPHQfWU6PRSiug/e+tiHxaK+hBL+Esbh3t5nBf6RMg1gjQkKBO6ftbgldv5KQRLrDVE762PaeHof6vWxp89LhC1oXofgOMLl9+1SlGW5o+DFwYvWfBO8e8twuVh9i9L6Ex8Fwpctclt+pn3iYgl8LRBLDEi9aCeJ8zcEu37hR2X5WEz7J7YNL7P8AJtFYyQyoSEZNst9iRE/gTMRH4RfhBBF+EX4LRf8Agb//xAAtEAEAAgEDAwQCAgICAwEAAAABABEhEDFBIFFhMFBxgZGhQGCxwXDhgNHxoP/aAAgBAQABPxD+tj/+Ky/+CK/rNSpXRUqV/T6/q9f1mpX8upUqVK97r/jYPZ66q9uPbK9vPWNKlewPtZ1EdXoNHxD060dalQ20r3Y9GowGpUvO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"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --blush: #f5d6e0;
-  --rose: #e8a0b4;
-  --rose-deep: #c97090;
-  --lavender: #e8dff5;
-  --purple: #b89fd4;
-  --purple-deep: #8a6caa;
-  --beige: #faf5ef;
-  --beige-warm: #f0e8dc;
-  --beige-dark: #d4c4b0;
-  --cream: #fffaf6;
-  --text: #4a3a4a;
-  --text-soft: #8a7a8a;
-  --text-light: #b8a8b8;
-  --white: #ffffff;
-  --success: #a8d5b5;
-  --success-deep: #5a9e72;
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+--beige:#fdf6ee;--beige2:#f5ead8;--beige3:#e8d8c0;
+--purple:#c9b8e8;--purple2:#b09ed4;--purple3:#8a78b0;
+--pink:#f5c8d8;--pink2:#e8a8c0;--pink3:#c87898;
+--mint:#c8e8d8;--mint2:#98d4b8;--mint3:#58a888;
+--text:#4a3828;--textsm:#8a7060;--textlt:#b8a898;--white:#ffffff;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--cream);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* bg blobs */
-body::before {
-  content: '';
-  position: fixed;
-  top: -120px; right: -120px;
-  width: 420px; height: 420px;
-  background: radial-gradient(circle, rgba(232,223,245,0.7) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-body::after {
-  content: '';
-  position: fixed;
-  bottom: -100px; left: -100px;
-  width: 380px; height: 380px;
-  background: radial-gradient(circle, rgba(245,214,224,0.6) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.app { max-width: 480px; margin: 0 auto; padding: 0 16px 100px; position: relative; z-index: 1; }
-
-/* header */
-.hero {
-  text-align: center;
-  padding: 36px 0 20px;
-}
-.hero-petal {
-  font-size: 32px;
-  margin-bottom: 8px;
-  animation: float 3s ease-in-out infinite;
-}
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  font-weight: 400;
-  color: var(--purple-deep);
-  line-height: 1.2;
-  margin-bottom: 4px;
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--rose-deep);
-}
-.hero p {
-  font-size: 12px;
-  color: var(--text-light);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-/* stat row */
-.stat-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin: 20px 0;
-}
-.stat-pill {
-  background: var(--white);
-  border-radius: 18px;
-  padding: 14px 8px;
-  text-align: center;
-  border: 1px solid rgba(184,159,212,0.2);
-  box-shadow: 0 2px 12px rgba(184,159,212,0.1);
-  transition: transform 0.2s;
-}
-.stat-pill:hover { transform: translateY(-2px); }
-.stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  color: var(--purple-deep);
-}
-.stat-lbl {
-  font-size: 10px;
-  color: var(--text-light);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 2px;
-}
-
-/* nav */
-.nav {
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  padding: 4px 0 12px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-.nav::-webkit-scrollbar { display: none; }
-.nav-btn {
-  flex-shrink: 0;
-  padding: 8px 16px;
-  border-radius: 30px;
-  border: 1.5px solid transparent;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-  background: var(--white);
-  color: var(--text-soft);
-  border-color: rgba(184,159,212,0.25);
-}
-.nav-btn.active {
-  background: linear-gradient(135deg, var(--lavender), var(--blush));
-  color: var(--purple-deep);
-  border-color: var(--purple);
-  box-shadow: 0 3px 12px rgba(184,159,212,0.3);
-}
-
-/* sections */
-.section { display: none; animation: fadeUp 0.3s ease; }
-.section.active { display: block; }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* cards */
-.card {
-  background: var(--white);
-  border-radius: 20px;
-  padding: 18px 20px;
-  margin-bottom: 14px;
-  border: 1px solid rgba(184,159,212,0.15);
-  box-shadow: 0 4px 20px rgba(184,159,212,0.08);
-}
-.card-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 15px;
-  color: var(--purple-deep);
-  margin-bottom: 4px;
-}
-.card-sub {
-  font-size: 11px;
-  color: var(--text-light);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
-}
-
-/* meal rows */
-.meal-row {
-  display: flex;
-  gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px dashed rgba(184,159,212,0.2);
-  align-items: flex-start;
-}
-.meal-row:last-child { border-bottom: none; }
-.meal-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  margin-top: 5px;
-  flex-shrink: 0;
-}
-.meal-dot.b { background: var(--rose); }
-.meal-dot.l { background: var(--purple); }
-.meal-dot.s { background: #f0c4a0; }
-.meal-dot.d { background: #a0c4d4; }
-.meal-info { flex: 1; }
-.meal-time-tag {
-  font-size: 10px;
-  color: var(--text-light);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.meal-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
-  margin: 2px 0;
-}
-.meal-desc {
-  font-size: 12px;
-  color: var(--text-soft);
-  line-height: 1.5;
-}
-.meal-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
-.tag {
-  font-size: 10px;
-  padding: 3px 9px;
-  border-radius: 20px;
-  font-weight: 400;
-}
-.tag-r { background: rgba(245,214,224,0.6); color: var(--rose-deep); }
-.tag-p { background: rgba(232,223,245,0.6); color: var(--purple-deep); }
-.tag-g { background: rgba(168,213,181,0.4); color: var(--success-deep); }
-.tag-a { background: rgba(240,196,160,0.4); color: #b07840; }
-
-/* day nav */
-.day-nav {
-  display: flex;
-  align-items: center;
-  margin-bottom: 14px;
-  gap: 8px;
-}
-.day-nav button {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: 1px solid rgba(184,159,212,0.3);
-  background: var(--white);
-  cursor: pointer;
-  font-size: 14px;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--purple-deep);
-  transition: all 0.2s;
-}
-.day-nav button:hover { background: var(--lavender); }
-.day-label {
-  flex: 1;
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  color: var(--purple-deep);
-}
-.day-dots {
-  display: flex; gap: 4px; justify-content: center; margin-bottom: 14px;
-}
-.day-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: rgba(184,159,212,0.25);
-  transition: all 0.2s;
-}
-.day-dot.active { background: var(--purple); width: 18px; border-radius: 3px; }
-
-/* schedule timeline */
-.timeline { position: relative; padding-left: 20px; }
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 7px; top: 8px; bottom: 8px;
-  width: 1.5px;
-  background: linear-gradient(to bottom, var(--blush), var(--lavender), var(--blush));
-  border-radius: 2px;
-}
-.tl-item {
-  position: relative;
-  padding: 0 0 16px 20px;
-}
-.tl-item::before {
-  content: '';
-  position: absolute;
-  left: -2px; top: 5px;
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 2px solid var(--rose);
-  box-shadow: 0 0 0 3px rgba(245,214,224,0.4);
-}
-.tl-time {
-  font-size: 10px;
-  color: var(--rose-deep);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 2px;
-}
-.tl-text {
-  font-size: 13px;
-  color: var(--text);
-  line-height: 1.5;
-}
-.tl-text strong { color: var(--purple-deep); font-weight: 500; }
-
-/* checklist */
-.check-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  border-bottom: 1px dashed rgba(184,159,212,0.15);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.check-item:last-child { border-bottom: none; }
-.check-item:hover { transform: translateX(3px); }
-.check-box {
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  border: 1.5px solid var(--purple);
-  flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.25s;
-  font-size: 12px;
-}
-.check-box.checked {
-  background: linear-gradient(135deg, var(--rose), var(--purple));
-  border-color: transparent;
-  color: white;
-}
-.check-text {
-  font-size: 13px;
-  color: var(--text);
-  flex: 1;
-  transition: all 0.2s;
-}
-.check-text.done { text-decoration: line-through; color: var(--text-light); }
-
-/* progress ring */
-.progress-wrap { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-.ring-wrap { position: relative; width: 64px; height: 64px; flex-shrink: 0; }
-.ring-wrap svg { transform: rotate(-90deg); }
-.ring-pct {
-  position: absolute;
-  inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
-  color: var(--purple-deep);
-}
-.prog-info { flex: 1; }
-.prog-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
-.prog-sub { font-size: 11px; color: var(--text-light); }
-
-/* water drops */
-.water-grid { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-.drop-btn {
-  width: 38px; height: 38px;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  border: 1.5px solid rgba(160,196,212,0.4);
-  background: var(--beige);
-  cursor: pointer;
-  font-size: 16px;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s;
-  color: var(--text-light);
-}
-.drop-btn.filled {
-  background: linear-gradient(180deg, #c8e8f5, #90c8e0);
-  border-color: #90c8e0;
-  color: white;
-  box-shadow: 0 3px 10px rgba(144,200,224,0.3);
-}
-.drop-btn:hover { transform: scale(1.1); }
-.water-label { font-size: 12px; color: var(--text-soft); margin-top: 8px; }
-.water-label span { color: var(--purple-deep); font-weight: 500; }
-
-/* recipes */
-.recipe-card {
-  background: var(--white);
-  border-radius: 20px;
-  padding: 18px 20px;
-  margin-bottom: 14px;
-  border: 1px solid rgba(184,159,212,0.15);
-  overflow: hidden;
-  position: relative;
-}
-.recipe-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  border-radius: 20px 20px 0 0;
-}
-.recipe-card.pink::before { background: linear-gradient(90deg, var(--blush), var(--rose)); }
-.recipe-card.purple::before { background: linear-gradient(90deg, var(--lavender), var(--purple)); }
-.recipe-card.mint::before { background: linear-gradient(90deg, #d0f0e0, var(--success)); }
-.recipe-card.peach::before { background: linear-gradient(90deg, #fde8d0, #f0c4a0); }
-.recipe-emoji { font-size: 28px; margin-bottom: 8px; }
-.recipe-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  color: var(--purple-deep);
-  margin-bottom: 4px;
-}
-.recipe-note {
-  font-size: 11px;
-  color: var(--text-light);
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-.steps { padding-left: 0; list-style: none; }
-.steps li {
-  font-size: 12px;
-  color: var(--text-soft);
-  line-height: 1.6;
-  padding: 5px 0;
-  padding-left: 20px;
-  position: relative;
-  border-bottom: 1px dashed rgba(184,159,212,0.12);
-}
-.steps li:last-child { border-bottom: none; }
-.steps li::before {
-  content: attr(data-n);
-  position: absolute;
-  left: 0;
-  font-size: 10px;
-  color: var(--rose-deep);
-  font-weight: 500;
-  top: 7px;
-}
-.recipe-why {
-  margin-top: 10px;
-  padding: 8px 12px;
-  background: linear-gradient(135deg, rgba(232,223,245,0.3), rgba(245,214,224,0.3));
-  border-radius: 12px;
-  font-size: 11px;
-  color: var(--text-soft);
-  line-height: 1.5;
-}
-.recipe-why strong { color: var(--purple-deep); }
-
-/* weight log */
-.weight-input-wrap {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-.weight-input-wrap input {
-  flex: 1;
-  padding: 10px 14px;
-  border: 1.5px solid rgba(184,159,212,0.3);
-  border-radius: 14px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  color: var(--text);
-  background: var(--beige);
-  outline: none;
-  transition: border-color 0.2s;
-}
-.weight-input-wrap input:focus { border-color: var(--purple); }
-.weight-input-wrap button {
-  padding: 10px 18px;
-  border-radius: 14px;
-  border: none;
-  background: linear-gradient(135deg, var(--blush), var(--lavender));
-  color: var(--purple-deep);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.weight-input-wrap button:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(184,159,212,0.3); }
-.log-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px dashed rgba(184,159,212,0.15);
-}
-.log-row:last-child { border-bottom: none; }
-.log-date { font-size: 11px; color: var(--text-light); }
-.log-kg { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--text); }
-.log-diff { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px; }
-.log-diff.down { background: rgba(168,213,181,0.3); color: var(--success-deep); }
-.log-diff.up { background: rgba(245,214,224,0.5); color: var(--rose-deep); }
-.goal-bar-wrap {
-  height: 10px;
-  background: rgba(184,159,212,0.15);
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 10px 0 6px;
-}
-.goal-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--rose), var(--purple));
-  border-radius: 10px;
-  transition: width 0.6s ease;
-}
-.goal-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--text-light); }
-
-/* bottom nav */
-.bottom-nav {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  background: rgba(255,250,246,0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(184,159,212,0.15);
-  display: flex;
-  padding: 8px 0 12px;
-  z-index: 100;
-}
-.bot-btn {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
-  color: var(--text-light);
-  padding: 6px 4px;
-  transition: all 0.2s;
-}
-.bot-btn .icon { font-size: 20px; transition: transform 0.2s; }
-.bot-btn.active { color: var(--purple-deep); }
-.bot-btn.active .icon { transform: scale(1.15); }
-
-/* note box */
-.note-box {
-  background: linear-gradient(135deg, rgba(232,223,245,0.35), rgba(245,214,224,0.35));
-  border-radius: 14px;
-  padding: 12px 14px;
-  font-size: 12px;
-  color: var(--text-soft);
-  line-height: 1.6;
-  margin-top: 8px;
-  border: 1px dashed rgba(184,159,212,0.2);
-}
-
-/* divider */
-.soft-divider { height: 1px; background: rgba(184,159,212,0.12); margin: 8px 0; }
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 19px;
-  color: var(--purple-deep);
-  margin-bottom: 14px;
-}
-.section-title span { font-style: italic; color: var(--rose-deep); }
-
-@media (max-width: 380px) {
-  .app { padding: 0 12px 100px; }
-  .hero h1 { font-size: 22px; }
-}
+body{font-family:'Nunito',sans-serif;background:var(--beige);color:var(--text);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:-100px;right:-100px;width:350px;height:350px;background:radial-gradient(circle,rgba(200,184,232,0.25) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;}
+body::after{content:'';position:fixed;bottom:-80px;left:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(245,200,216,0.2) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0;}
+.app{max-width:480px;margin:0 auto;padding:0 14px 90px;position:relative;z-index:1;}
+.header{padding:28px 0 14px;text-align:center;}
+.header h1{font-family:'Fredoka One',cursive;font-size:34px;color:var(--purple3);letter-spacing:0.01em;}
+.header p{font-size:12px;color:var(--textlt);margin-top:5px;}
+.tabs{display:flex;gap:0;background:var(--beige2);border-radius:16px;padding:4px;margin-bottom:18px;}
+.tab{flex:1;padding:9px 2px;border:none;background:transparent;font-family:'Nunito',sans-serif;font-size:11.5px;font-weight:600;color:var(--textsm);cursor:pointer;border-radius:12px;transition:all 0.2s;text-align:center;}
+.tab.active{background:var(--white);color:var(--purple3);box-shadow:0 2px 8px rgba(140,110,180,0.15);}
+.section{display:none;animation:up 0.25s ease;}
+.section.active{display:block;}
+@keyframes up{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.card{background:var(--white);border-radius:20px;padding:18px;margin-bottom:14px;border:1.5px solid rgba(200,184,232,0.2);box-shadow:0 3px 16px rgba(180,160,200,0.08);}
+.card-title{font-family:'Fredoka One',cursive;font-size:17px;color:var(--purple3);margin-bottom:12px;}
+.circle-wrap{display:flex;flex-direction:column;align-items:center;}
+.circles-row{display:flex;gap:16px;justify-content:center;margin-bottom:14px;}
+.ci{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.ring-svg{transform:rotate(-90deg);}
+.ring-lbl{font-family:'Fredoka One',cursive;font-size:12px;text-align:center;line-height:1.3;}
+.journey-days{font-family:'Fredoka One',cursive;font-size:22px;color:var(--purple3);text-align:center;margin-bottom:3px;}
+.journey-sub{font-size:12px;color:var(--textlt);text-align:center;margin-bottom:12px;}
+.tbar-wrap{width:100%;background:var(--beige2);border-radius:10px;height:9px;overflow:hidden;margin-bottom:5px;}
+.tbar{height:100%;background:linear-gradient(90deg,var(--pink2),var(--purple2),var(--mint2));border-radius:10px;transition:width 0.5s;}
+.tbar-lbls{display:flex;justify-content:space-between;font-size:11px;color:var(--textlt);}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
+.sbox{border-radius:16px;padding:13px 8px;text-align:center;}
+.sbox.pk{background:rgba(245,200,216,0.3);border:1.5px solid rgba(232,168,192,0.3);}
+.sbox.pu{background:rgba(200,184,232,0.3);border:1.5px solid rgba(176,158,212,0.3);}
+.sbox.mt{background:rgba(200,232,216,0.3);border:1.5px solid rgba(152,212,184,0.3);}
+.snum{font-family:'Fredoka One',cursive;font-size:22px;}
+.snum.pk{color:var(--pink3);}
+.snum.pu{color:var(--purple3);}
+.snum.mt{color:var(--mint3);}
+.slbl{font-size:10px;color:var(--textsm);margin-top:2px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;}
+.mini-prog-wrap{background:var(--beige2);border-radius:8px;height:8px;overflow:hidden;margin:0 0 5px;}
+.mini-prog{height:100%;background:linear-gradient(90deg,var(--pink2),var(--purple2));border-radius:8px;transition:width 0.3s;}
+.mini-prog-lbl{font-size:11px;color:var(--textlt);text-align:right;margin-bottom:10px;}
+.chk-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1.5px dashed rgba(200,184,232,0.18);cursor:pointer;}
+.chk-item:last-child{border-bottom:none;}
+.cb{width:24px;height:24px;border-radius:8px;border:2px solid var(--purple);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all 0.2s;}
+.cb.on{background:var(--purple2);border-color:var(--purple2);color:white;}
+.cb-txt{font-size:13px;color:var(--text);font-weight:500;line-height:1.4;}
+.cb-txt.done{text-decoration:line-through;color:var(--textlt);}
+.water-row{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0;}
+.wd{width:36px;height:36px;border-radius:50%;background:var(--beige2);border:2px solid rgba(180,200,220,0.3);font-size:17px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.18s;}
+.wd.on{background:linear-gradient(180deg,#d0ecf8,#88c8e8);border-color:#88c8e8;}
+.wd:active{transform:scale(0.9);}
+.water-lbl{font-size:12px;color:var(--textsm);}
+.wi-row{display:flex;gap:8px;margin-bottom:12px;}
+.wi-row input{flex:1;padding:10px 13px;border:2px solid rgba(200,184,232,0.3);border-radius:13px;font-family:'Nunito',sans-serif;font-size:14px;color:var(--text);background:var(--beige);outline:none;}
+.wi-row input:focus{border-color:var(--purple2);}
+.wi-row button{padding:10px 16px;border-radius:13px;border:none;background:var(--purple2);color:white;font-family:'Fredoka One',cursive;font-size:14px;cursor:pointer;}
+.wlr{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1.5px dashed rgba(200,184,232,0.18);}
+.wlr:last-child{border-bottom:none;}
+.wlr-d{font-size:11px;color:var(--textlt);}
+.wlr-k{font-family:'Fredoka One',cursive;font-size:16px;color:var(--text);}
+.wdiff{font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;}
+.wdiff.g{background:rgba(200,232,216,0.5);color:var(--mint3);}
+.wdiff.b{background:rgba(245,200,216,0.5);color:var(--pink3);}
+.gb-wrap{background:var(--beige2);border-radius:10px;height:9px;overflow:hidden;margin:10px 0 5px;}
+.gb{height:100%;background:linear-gradient(90deg,var(--pink2),var(--purple2));border-radius:10px;transition:width 0.5s;}
+.gb-lbls{display:flex;justify-content:space-between;font-size:11px;color:var(--textlt);}
+.day-nav{display:flex;align-items:center;margin-bottom:10px;}
+.day-nav button{width:34px;height:34px;border-radius:50%;border:2px solid rgba(200,184,232,0.3);background:var(--white);color:var(--purple3);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.day-nav button:active{background:var(--purple2);color:white;}
+.day-name{flex:1;text-align:center;font-family:'Fredoka One',cursive;font-size:21px;color:var(--purple3);}
+.ddots-row{display:flex;gap:5px;justify-content:center;margin-bottom:14px;}
+.ddot{width:7px;height:7px;border-radius:50%;background:rgba(200,184,232,0.3);transition:all 0.2s;}
+.ddot.on{background:var(--purple2);width:20px;border-radius:4px;}
+.mc{border-radius:16px;padding:14px 16px;margin-bottom:10px;}
+.mc.b{background:rgba(245,200,216,0.2);border:1.5px solid rgba(232,168,192,0.25);}
+.mc.l{background:rgba(200,184,232,0.2);border:1.5px solid rgba(176,158,212,0.25);}
+.mc.s{background:rgba(253,246,238,0.8);border:1.5px solid rgba(232,210,180,0.35);}
+.mc.d{background:rgba(200,232,216,0.2);border:1.5px solid rgba(152,212,184,0.25);}
+.mt-time{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;}
+.mt-time.b{color:var(--pink3);}
+.mt-time.l{color:var(--purple3);}
+.mt-time.s{color:#b09060;}
+.mt-time.d{color:var(--mint3);}
+.mt-name{font-family:'Fredoka One',cursive;font-size:15px;color:var(--text);margin-bottom:3px;}
+.mt-desc{font-size:12px;color:var(--textsm);line-height:1.55;}
+.mt-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;}
+.mtag{font-size:10px;padding:3px 9px;border-radius:20px;font-weight:600;}
+.mtag.pk{background:rgba(245,200,216,0.5);color:var(--pink3);}
+.mtag.pu{background:rgba(200,184,232,0.5);color:var(--purple3);}
+.mtag.mt{background:rgba(200,232,216,0.5);color:var(--mint3);}
+.mtag.be{background:var(--beige2);color:#907050;}
+.tl{padding-left:18px;position:relative;}
+.tl::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--pink2),var(--purple2),var(--mint2));border-radius:2px;}
+.tli{position:relative;padding:0 0 16px 18px;}
+.tli::before{content:'';position:absolute;left:-3px;top:4px;width:11px;height:11px;border-radius:50%;border:2.5px solid var(--pink2);background:var(--white);}
+.tli-time{font-size:10px;font-weight:700;color:var(--pink3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:2px;}
+.tli-text{font-size:13px;color:var(--text);line-height:1.5;}
+.tli-text b{color:var(--purple3);}
+.tlbadge{display:inline-block;font-size:10px;padding:2px 9px;border-radius:20px;font-weight:700;margin-top:5px;}
+.tlbadge.pk{background:rgba(245,200,216,0.4);color:var(--pink3);}
+.tlbadge.mt{background:rgba(200,232,216,0.4);color:var(--mint3);}
+.tlbadge.pu{background:rgba(200,184,232,0.4);color:var(--purple3);}
+.rc{border-radius:20px;padding:18px;margin-bottom:14px;}
+.rc.pk{background:rgba(245,200,216,0.18);border:1.5px solid rgba(232,168,192,0.3);}
+.rc.pu{background:rgba(200,184,232,0.18);border:1.5px solid rgba(176,158,212,0.3);}
+.rc.mt{background:rgba(200,232,216,0.18);border:1.5px solid rgba(152,212,184,0.3);}
+.rc.be{background:rgba(240,220,200,0.25);border:1.5px solid rgba(210,185,155,0.35);}
+.re{font-size:30px;margin-bottom:6px;}
+.rn{font-family:'Fredoka One',cursive;font-size:18px;color:var(--purple3);margin-bottom:2px;}
+.rnote{font-size:11px;color:var(--textlt);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:8px;font-weight:700;}
+.rmacro{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.rmtag{font-size:10px;padding:3px 9px;border-radius:20px;font-weight:700;}
+.rmtag.p{background:rgba(200,184,232,0.4);color:var(--purple3);}
+.rmtag.c{background:rgba(200,232,216,0.4);color:var(--mint3);}
+.rmtag.f{background:rgba(245,200,216,0.4);color:var(--pink3);}
+.rsteps{list-style:none;padding:0;}
+.rsteps li{font-size:12.5px;color:var(--textsm);padding:5px 0 5px 22px;position:relative;border-bottom:1.5px dashed rgba(180,160,200,0.15);line-height:1.5;}
+.rsteps li:last-child{border-bottom:none;}
+.rsteps li::before{content:attr(data-n);position:absolute;left:0;top:6px;font-size:10px;font-weight:700;color:var(--purple2);}
+.rwhy{margin-top:10px;padding:9px 12px;background:rgba(255,255,255,0.6);border-radius:12px;font-size:11.5px;color:var(--textsm);line-height:1.5;border-left:3px solid var(--purple2);}
+.rwhy b{color:var(--purple3);}
+.note{background:linear-gradient(135deg,rgba(200,184,232,0.15),rgba(245,200,216,0.15));border-radius:14px;padding:12px 14px;font-size:12px;color:var(--textsm);line-height:1.6;border:1.5px dashed rgba(200,184,232,0.3);margin-top:8px;}
+.bnav{position:fixed;bottom:0;left:0;right:0;background:rgba(253,246,238,0.96);backdrop-filter:blur(14px);border-top:1.5px solid rgba(200,184,232,0.2);display:flex;padding:8px 0 14px;z-index:100;}
+.bbt{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;border:none;background:none;cursor:pointer;font-family:'Nunito',sans-serif;font-size:10px;font-weight:600;color:var(--textlt);padding:5px 2px;transition:all 0.2s;}
+.bbt .ic{font-size:19px;transition:transform 0.2s;}
+.bbt.on{color:var(--purple3);}
+.bbt.on .ic{transform:scale(1.15);}
 </style>
 </head>
 <body>
 <div class="app">
-  <div class="hero">
-    <div class="hero-petal">🌸</div>
-    <h1>my <em>glow up</em> tracker</h1>
-    <p>50 kg → 42 kg · kathmandu summer 2025</p>
+  <div class="header">
+    <h1>My Journey</h1>
+    <p>50 kg to 42 kg &nbsp;·&nbsp; kathmandu &nbsp;·&nbsp; 3 months</p>
+  </div>
+  <div class="tabs">
+    <button class="tab active" onclick="sw('home',this)">Home</button>
+    <button class="tab" onclick="sw('meals',this)">Meals</button>
+    <button class="tab" onclick="sw('schedule',this)">Schedule</button>
+    <button class="tab" onclick="sw('recipes',this)">Recipes</button>
   </div>
 
-  <div class="stat-row">
-    <div class="stat-pill">
-      <div class="stat-num">1,350</div>
-      <div class="stat-lbl">cal goal</div>
-    </div>
-    <div class="stat-pill">
-      <div class="stat-num" id="stat-days">0</div>
-      <div class="stat-lbl">days done</div>
-    </div>
-    <div class="stat-pill">
-      <div class="stat-num" id="stat-lost">0.0</div>
-      <div class="stat-lbl">kg lost</div>
-    </div>
-  </div>
-
-  <div class="nav" id="top-nav">
-    <button class="nav-btn active" onclick="switchTab('today')">✦ today</button>
-    <button class="nav-btn" onclick="switchTab('meals')">meal chart</button>
-    <button class="nav-btn" onclick="switchTab('schedule')">schedule</button>
-    <button class="nav-btn" onclick="switchTab('recipes')">recipes</button>
-    <button class="nav-btn" onclick="switchTab('weight')">weight log</button>
-  </div>
-
-  <!-- TODAY -->
-  <div class="section active" id="today">
+  <!-- HOME -->
+  <div class="section active" id="home">
     <div class="card">
-      <div class="progress-wrap">
-        <div class="ring-wrap">
-          <svg width="64" height="64" viewBox="0 0 64 64">
-            <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(184,159,212,0.15)" stroke-width="6"/>
-            <circle cx="32" cy="32" r="26" fill="none" stroke="url(#ringGrad)" stroke-width="6"
-              stroke-linecap="round" stroke-dasharray="163.4" id="ring-prog" stroke-dashoffset="163.4"/>
-            <defs>
-              <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#e8a0b4"/>
-                <stop offset="100%" stop-color="#b89fd4"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <div class="ring-pct" id="ring-pct">0%</div>
+      <div class="card-title">3 Month Progress</div>
+      <div class="circle-wrap">
+        <div class="circles-row">
+          <div class="ci">
+            <svg class="ring-svg" width="82" height="82" viewBox="0 0 82 82">
+              <circle cx="41" cy="41" r="33" fill="none" stroke="rgba(200,184,232,0.15)" stroke-width="7"/>
+              <circle cx="41" cy="41" r="33" fill="none" stroke="#c9b8e8" stroke-width="7" stroke-linecap="round" stroke-dasharray="207" id="r1" stroke-dashoffset="207"/>
+            </svg>
+            <div class="ring-lbl" style="color:var(--purple3)">Month 1<br/><span id="m1t" style="font-family:'Fredoka One',cursive;font-size:15px;">0/30</span></div>
+          </div>
+          <div class="ci">
+            <svg class="ring-svg" width="82" height="82" viewBox="0 0 82 82">
+              <circle cx="41" cy="41" r="33" fill="none" stroke="rgba(245,200,216,0.15)" stroke-width="7"/>
+              <circle cx="41" cy="41" r="33" fill="none" stroke="#f5c8d8" stroke-width="7" stroke-linecap="round" stroke-dasharray="207" id="r2" stroke-dashoffset="207"/>
+            </svg>
+            <div class="ring-lbl" style="color:var(--pink3)">Month 2<br/><span id="m2t" style="font-family:'Fredoka One',cursive;font-size:15px;">0/30</span></div>
+          </div>
+          <div class="ci">
+            <svg class="ring-svg" width="82" height="82" viewBox="0 0 82 82">
+              <circle cx="41" cy="41" r="33" fill="none" stroke="rgba(200,232,216,0.15)" stroke-width="7"/>
+              <circle cx="41" cy="41" r="33" fill="none" stroke="#c8e8d8" stroke-width="7" stroke-linecap="round" stroke-dasharray="207" id="r3" stroke-dashoffset="207"/>
+            </svg>
+            <div class="ring-lbl" style="color:var(--mint3)">Month 3<br/><span id="m3t" style="font-family:'Fredoka One',cursive;font-size:15px;">0/30</span></div>
+          </div>
         </div>
-        <div class="prog-info">
-          <div class="prog-title">today's habits</div>
-          <div class="prog-sub" id="prog-sub">start checking off your day ✨</div>
-        </div>
+        <div class="journey-days" id="jdays">Day 0 of 90</div>
+        <div class="journey-sub" id="jsub">your journey starts today</div>
+        <div class="tbar-wrap"><div class="tbar" id="tbar" style="width:0%"></div></div>
+        <div class="tbar-lbls"><span>start</span><span id="tpct">0%</span><span>90 days</span></div>
       </div>
+    </div>
+    <div class="stats-row">
+      <div class="sbox pk"><div class="snum pk" id="s-days">0</div><div class="slbl">days done</div></div>
+      <div class="sbox pu"><div class="snum pu" id="s-streak">0</div><div class="slbl">streak</div></div>
+      <div class="sbox mt"><div class="snum mt" id="s-lost">0.0</div><div class="slbl">kg lost</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Today Check-in</div>
+      <div class="mini-prog-wrap"><div class="mini-prog" id="cprog" style="width:0%"></div></div>
+      <div class="mini-prog-lbl" id="clbl">0 / 8 done</div>
       <div id="checklist"></div>
     </div>
-
     <div class="card">
-      <div class="card-title">💧 water today</div>
-      <div class="card-sub">goal: 10–12 glasses</div>
-      <div class="water-grid" id="water-drops"></div>
-      <div class="water-label">you've had <span id="water-count">0</span> glasses · keep going 🌊</div>
+      <div class="card-title">Water Intake</div>
+      <div style="font-size:12px;color:var(--textlt);margin-bottom:4px;">goal: 10 to 12 glasses per day</div>
+      <div class="water-row" id="wdrops"></div>
+      <div class="water-lbl">filled: <b id="wcnt">0</b> / 12 glasses</div>
     </div>
-
-    <button onclick="resetToday()" style="width:100%; padding:11px; border-radius:14px; border:1px dashed rgba(184,159,212,0.4); background:transparent; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--text-light); cursor:pointer; margin-top:4px;">reset today ↺</button>
+    <div class="card">
+      <div class="card-title">Weight Log</div>
+      <div style="font-size:12px;color:var(--textlt);margin-bottom:12px;">every monday morning, same time, after bathroom</div>
+      <div class="wi-row">
+        <input type="number" id="winput" placeholder="e.g. 49.5" step="0.1" min="30" max="120"/>
+        <button onclick="logW()">Add</button>
+      </div>
+      <div id="wentries"><p style="font-size:12px;color:var(--textlt);">no entries yet</p></div>
+      <div style="margin-top:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;">
+          <span style="font-size:11px;color:var(--textlt);">start: 50 kg</span>
+          <span style="font-family:'Fredoka One',cursive;font-size:20px;color:var(--purple3);" id="currw">--</span>
+          <span style="font-size:11px;color:var(--textlt);">goal: 42 kg</span>
+        </div>
+        <div class="gb-wrap"><div class="gb" id="gbar" style="width:0%"></div></div>
+        <div class="gb-lbls"><span>0 kg</span><span id="glbl">0 / 8 kg lost</span><span>8 kg</span></div>
+      </div>
+    </div>
+    <button onclick="resetDay()" style="width:100%;padding:11px;border-radius:14px;border:2px dashed rgba(200,184,232,0.4);background:transparent;font-family:'Nunito',sans-serif;font-size:13px;font-weight:600;color:var(--textlt);cursor:pointer;">reset today</button>
   </div>
 
   <!-- MEALS -->
   <div class="section" id="meals">
     <div class="day-nav">
-      <button onclick="prevDay()">‹</button>
-      <div class="day-label" id="day-label">Monday</div>
-      <button onclick="nextDay()">›</button>
+      <button onclick="pd()">&#8249;</button>
+      <div class="day-name" id="dlbl">Monday</div>
+      <button onclick="nd()">&#8250;</button>
     </div>
-    <div class="day-dots" id="day-dots"></div>
-    <div id="meal-list"></div>
+    <div class="ddots-row" id="ddots"></div>
+    <div id="mlist"></div>
   </div>
 
   <!-- SCHEDULE -->
   <div class="section" id="schedule">
-    <div class="section-title">daily <span>routine</span></div>
     <div class="card">
-      <div class="timeline" id="timeline-content"></div>
+      <div class="card-title">Daily Routine</div>
+      <div class="tl" id="sched"></div>
     </div>
-    <div class="note-box">⚠️ waking up at 7am is the hardest part. everything else follows from it. no skipping breakfast.</div>
+    <div class="note">Rainy season: evening walk only if it does not rain. On rainy days do a second round of stretching or light home movement instead.</div>
   </div>
 
   <!-- RECIPES -->
   <div class="section" id="recipes">
-    <div class="section-title"><span>simple</span> recipes</div>
-    <div id="recipe-list"></div>
-  </div>
-
-  <!-- WEIGHT LOG -->
-  <div class="section" id="weight">
-    <div class="section-title">weight <span>journey</span></div>
-    <div class="card">
-      <div class="card-title">log your weight 🌸</div>
-      <div class="card-sub">every monday · same time · after bathroom</div>
-      <div class="weight-input-wrap">
-        <input type="number" id="w-input" placeholder="e.g. 49.5" step="0.1" min="30" max="120"/>
-        <button onclick="logWeight()">add ✦</button>
-      </div>
-      <div id="weight-log-entries"><p style="font-size:12px;color:var(--text-light);">no entries yet. log every monday morning 🌙</p></div>
-    </div>
-    <div class="card">
-      <div class="card-title">goal progress</div>
-      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;">
-        <span style="font-size:12px; color:var(--text-soft);">start: 50 kg</span>
-        <span style="font-family:'Playfair Display',serif; font-size:18px; color:var(--purple-deep);" id="curr-w">— kg</span>
-        <span style="font-size:12px; color:var(--text-soft);">goal: 42 kg</span>
-      </div>
-      <div class="goal-bar-wrap">
-        <div class="goal-bar" id="goal-bar" style="width:0%"></div>
-      </div>
-      <div class="goal-labels">
-        <span>0 kg</span>
-        <span id="lost-label">0 / 8 kg lost</span>
-        <span>8 kg</span>
-      </div>
-    </div>
-    <div class="note-box">🌸 0.5–1 kg per week is healthy. 8 kg takes 8–16 weeks. no shortcuts, no crash diets. just consistency.</div>
+    <div class="note" style="margin-bottom:14px;">Dinner recipes only. Rotate these across your week. Some are egg, some chicken or buff on weekends, some are all veg. All high protein and low calorie.</div>
+    <div id="rlist"></div>
   </div>
 </div>
 
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-  <button class="bot-btn active" onclick="switchTab('today')" id="bot-today">
-    <span class="icon">✦</span><span>today</span>
-  </button>
-  <button class="bot-btn" onclick="switchTab('meals')" id="bot-meals">
-    <span class="icon">🍱</span><span>meals</span>
-  </button>
-  <button class="bot-btn" onclick="switchTab('schedule')" id="bot-schedule">
-    <span class="icon">🕐</span><span>schedule</span>
-  </button>
-  <button class="bot-btn" onclick="switchTab('recipes')" id="bot-recipes">
-    <span class="icon">🌿</span><span>recipes</span>
-  </button>
-  <button class="bot-btn" onclick="switchTab('weight')" id="bot-weight">
-    <span class="icon">🌸</span><span>weight</span>
-  </button>
+<div class="bnav">
+  <button class="bbt on" onclick="sw('home',this)" id="bh"><span class="ic">&#127968;</span><span>Home</span></button>
+  <button class="bbt" onclick="sw('meals',this)" id="bm"><span class="ic">&#127857;</span><span>Meals</span></button>
+  <button class="bbt" onclick="sw('schedule',this)" id="bs"><span class="ic">&#9200;</span><span>Schedule</span></button>
+  <button class="bbt" onclick="sw('recipes',this)" id="br"><span class="ic">&#127859;</span><span>Recipes</span></button>
 </div>
 
 <script>
-const days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
-let currentDay = 0;
-
-const mealPlan = {
-  Monday:[
-    {type:'b',time:'8:00 am · Breakfast',name:'Egg bhurji + cucumber slices',desc:'2 scrambled eggs with onion, tomato, green chilli. 5 cucumber slices on side. No bread.',tags:['high protein','skin healing','10 min']},
-    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + spinach tarkari + raita',desc:'1 bowl rice only. Spinach dal (iron boost). Cucumber tomato raita on side. No refill.',tags:['iron rich','filling','balanced']},
-    {type:'s',time:'4:00 pm · Snack',name:'4 almonds + watermelon',desc:'Pre-walk fuel. Almonds + 1 cup watermelon. Critical if you have low BP.',tags:['pre-walk','hydrating','low cal']},
-    {type:'d',time:'7:30 pm · Dinner',name:'Stir fried cabbage + 2 rotis',desc:'Cabbage stir fry with lemon finish. 4 cucumber slices on side. 2 small rotis only.',tags:['light','fat burning','easy']},
-  ],
-  Tuesday:[
-    {type:'b',time:'8:00 am · Breakfast',name:'Curd + banana + 4 almonds',desc:'Small bowl dahi with 1 banana mashed in. 4 almonds on side. Quick and filling.',tags:['gut health','quick','protein']},
-    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + beans tarkari',desc:'1 bowl rice, masoor dal, green beans dry tarkari. Add tomato salad with lemon.',tags:['fiber','filling','iron']},
-    {type:'s',time:'4:00 pm · Snack',name:'Watermelon-lemon cooler',desc:'Blended watermelon + lemon + black salt. Replaces milk tea + biscuits completely.',tags:['hydrating','zero sugar spike','skin']},
-    {type:'d',time:'7:30 pm · Dinner',name:'Karela-tomato fry + small rice',desc:'Karela dry fry with a tiny pinch of sugar + lemon to balance bitterness. Half bowl rice.',tags:['blood sugar','acne fighter','light']},
-  ],
-  Wednesday:[
-    {type:'b',time:'8:00 am · Breakfast',name:'2 boiled eggs + papaya',desc:'2 boiled eggs with salt and pepper. 1 cup ripe papaya slices. Clean and easy.',tags:['protein','digestion','light']},
-    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + cauliflower tarkari',desc:'Rice + dal + dry cauliflower with cumin and tomato. Raw tomato + cucumber side.',tags:['filling','light oil','balanced']},
-    {type:'s',time:'4:00 pm · Snack',name:'Lemon tea + 4 almonds',desc:'Your lemon tea is fine here. Just replace biscuits with almonds. That is the only change.',tags:['simple swap','satisfying']},
-    {type:'d',time:'7:30 pm · Dinner',name:'Tomato egg soup + roti',desc:'Beat 2 eggs into simmering tomato-onion broth. Salt, turmeric, garlic. 1–2 rotis.',tags:['warm','light','interesting']},
-  ],
-  Thursday:[
-    {type:'b',time:'8:00 am · Breakfast',name:'Curd with cucumber + boiled egg',desc:'Plain dahi with sliced cucumber + salt + jeera powder. 1 boiled egg on the side.',tags:['cooling','gut health','protein']},
-    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + mixed veg tarkari',desc:'Whatever cheap vegetable is fresh at market today. Season simply. Raita on side.',tags:['flexible','market fresh','balanced']},
-    {type:'s',time:'4:00 pm · Snack',name:'Papaya with lemon + black salt',desc:'1 cup ripe papaya. Summer perfect. Great for digestion, skin, and kidney health.',tags:['digestive','skin','summer']},
-    {type:'d',time:'7:30 pm · Dinner',name:'Spinach-garlic sauté + dal + roti',desc:'Spinach sautéed with garlic, tomato. Small bowl dal. 2 rotis. Iron-packed dinner.',tags:['iron boost','low BP help','light']},
-  ],
-  Friday:[
-    {type:'b',time:'8:00 am · Breakfast',name:'Egg bhurji + tomato salad',desc:'Egg bhurji as usual. Sliced tomato with lemon and salt on side. Energizing start.',tags:['protein','skin','10 min']},
-    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + beans or cabbage tarkari',desc:'Normal dal bhat. Focus on portions — 1 bowl rice, no second serving, eat slowly.',tags:['portion control','normal Nepali meal']},
-    {type:'s',time:'4:00 pm · Snack',name:'Watermelon + 4 almonds',desc:'Cooling snack before your walk. Keeps BP stable and energy up.',tags:['pre-walk','hydrating']},
-    {type:'d',time:'7:30 pm · Dinner',name:'Cabbage stir fry + cucumber raita',desc:'Hot cabbage fry and cold raita together — contrast is so good. 1–2 rotis optional.',tags:['fresh','light','easy']},
-  ],
-  Saturday:[
-    {type:'b',time:'8:00 am · Breakfast',name:'Banana curd smoothie',desc:'1 banana + small bowl curd + 1 glass water blended. No sugar. Thick and filling.',tags:['quick','energy','gut health']},
-    {type:'l',time:'1:00 pm · Lunch',name:'Dal bhat + green leafy tarkari',desc:'Whatever green is cheap — spinach, methi, mustard saag. With dal and 1 bowl rice.',tags:['iron','minerals','seasonal']},
-    {type:'s',time:'4:00 pm · Snack',name:'1 milk tea allowed 🍵',desc:'Saturday treat — 1 cup milk tea is fine. But NO biscuits. Replace with 4 almonds or peanuts.',tags:['1 tea ok','no biscuits','flexible']},
-    {type:'d',time:'7:30 pm · Dinner',name:'Karela fry + small rice + dal',desc:'Lighter dinner. Karela fry, small bowl rice, watery dal. Or just soup if you prefer.',tags:['blood sugar','light','good for skin']},
-  ],
-  Sunday:[
-    {type:'b',time:'8:00 am · Breakfast',name:'2 boiled eggs + watermelon',desc:'Sunday easy breakfast. Boil 2 eggs. Cut watermelon. Done in 5 min. Fresh start.',tags:['easy','hydrating','protein']},
-    {type:'l',time:'1:00 pm · Lunch',name:'Sunday full dal bhat — enjoy it',desc:'Eat your full Sunday lunch normally. Still 1 bowl rice only — but enjoy every bite.',tags:['enjoy','no guilt','normal']},
-    {type:'s',time:'4:00 pm · Snack',name:'Small mango treat 🥭',desc:'3–4 mango slices only. Not half a mango. This is your weekly sweet treat. Savour it.',tags:['weekly treat','small portion','mango season']},
-    {type:'d',time:'7:30 pm · Dinner',name:'Big salad bowl + dal + roti',desc:'Tomato, cucumber, onion, lemon, salt — big fresh salad. Dal. 1–2 rotis. Light reset.',tags:['light','fresh','reset for week']},
-  ],
+var DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+var cday=0;
+var MEALS={
+Monday:[
+{t:'b',time:'8:00 am - Breakfast',name:'Sattu Drink + 1 Boiled Egg',desc:'2 tbsp sattu mixed in water with lemon and black salt. 1 boiled egg on the side. Clean and energising.',tags:['high protein','filling','energising']},
+{t:'l',time:'1:00 pm - Lunch',name:'Dal Bhat + Spinach Tarkari',desc:'1 bowl rice. Watery masoor dal with spinach. Focus on eating slowly, no refilling rice.',tags:['iron rich','balanced','1 bowl only']},
+{t:'s',time:'4:30 pm - Snack',name:'Watermelon + 4 Almonds',desc:'1 cup watermelon and 4 almonds before workout or walk. Keeps blood pressure stable.',tags:['hydrating','pre-workout','light']},
+{t:'d',time:'7:30 pm - Dinner',name:'Pick from Recipes Tab',desc:'Choose any dinner recipe and rotate daily. All are under 300 calories and high protein.',tags:['high protein','low cal','rotate']},
+],
+Tuesday:[
+{t:'b',time:'8:00 am - Breakfast',name:'Horlicks Milk + 1 Boiled Egg',desc:'1 glass warm Horlicks milk. 1 boiled egg with salt and pepper. Warm and nourishing start.',tags:['calcium','protein','warm']},
+{t:'l',time:'1:00 pm - Lunch',name:'Dal Bhat + Cauliflower Tarkari',desc:'1 bowl rice. Dal. Dry cauliflower cooked with cumin and tomato. Tomato slices on the side.',tags:['filling','light oil','balanced']},
+{t:'s',time:'4:30 pm - Snack',name:'Papaya + Black Salt',desc:'1 cup ripe papaya with lemon squeeze and black salt. Summer digestive and skin booster.',tags:['digestive','skin friendly','hydrating']},
+{t:'d',time:'7:30 pm - Dinner',name:'Pick from Recipes Tab',desc:'Try a different recipe from Monday. Veg options are great today.',tags:['rotate','veggie friendly','light']},
+],
+Wednesday:[
+{t:'b',time:'8:00 am - Breakfast',name:'Sattu Drink + Egg Bhurji',desc:'Sattu drink as usual. Egg bhurji with onion, tomato, green chilli. Quick and high protein.',tags:['high protein','quick','satisfying']},
+{t:'l',time:'1:00 pm - Lunch',name:'Dal Bhat + Green Beans Tarkari',desc:'1 bowl rice. Masoor dal. Dry green beans stir fried with mustard seeds and tomato.',tags:['fiber','iron','filling']},
+{t:'s',time:'4:30 pm - Snack',name:'Banana + 4 Almonds',desc:'1 banana and 4 almonds before your workout. Good potassium and natural energy.',tags:['energy','pre-workout','potassium']},
+{t:'d',time:'7:30 pm - Dinner',name:'Pick from Recipes Tab',desc:'Pick any recipe. Egg and tofu options work great on Wednesdays.',tags:['rotate','high protein','easy']},
+],
+Thursday:[
+{t:'b',time:'8:00 am - Breakfast',name:'Horlicks Milk + Sattu Mix',desc:'1 glass Horlicks. 1 tbsp sattu on the side or mixed in water. Good fill-up combination.',tags:['protein','calcium','filling']},
+{t:'l',time:'1:00 pm - Lunch',name:'Dal Bhat + Mixed Veg Tarkari',desc:'1 bowl rice. Whatever seasonal vegetable is fresh and cheap at market. Keep it simple.',tags:['market fresh','seasonal','balanced']},
+{t:'s',time:'4:30 pm - Snack',name:'Watermelon Lemon Cooler',desc:'Blend 2 cups watermelon with lemon juice and a pinch of black salt. Drink fresh.',tags:['hydrating','zero sugar spike','refreshing']},
+{t:'d',time:'7:30 pm - Dinner',name:'Pick from Recipes Tab',desc:'Try the rajma or chana recipe today for a good plant protein dinner.',tags:['plant protein','fiber','filling']},
+],
+Friday:[
+{t:'b',time:'8:00 am - Breakfast',name:'Sattu Drink + 1 Boiled Egg',desc:'End the week strong. Sattu drink with lemon and black salt. 1 boiled egg on the side.',tags:['protein','clean','energising']},
+{t:'l',time:'1:00 pm - Lunch',name:'Dal Bhat + Cabbage Stir Fry',desc:'1 bowl rice. Dal. Cabbage stir fried with tomato and lemon finish. Light and tasty.',tags:['fat burning','filling','light oil']},
+{t:'s',time:'4:30 pm - Snack',name:'Plain Curd + Cucumber',desc:'Small bowl plain dahi with sliced cucumber and roasted jeera powder. Cooling and probiotic.',tags:['gut health','cooling','light']},
+{t:'d',time:'7:30 pm - Dinner',name:'Pick from Recipes Tab',desc:'Chicken or egg recipes are great on Fridays to end the week with good protein.',tags:['high protein','satisfying','weekend prep']},
+],
+Saturday:[
+{t:'b',time:'8:00 am - Breakfast',name:'Horlicks Milk + Egg Bhurji',desc:'Warm Horlicks milk. Egg bhurji with onion and tomato. A slightly more relaxed breakfast.',tags:['protein','warm','weekend']},
+{t:'l',time:'1:00 pm - Lunch',name:'Full Dal Bhat - Enjoy It',desc:'Normal full lunch. 1 bowl rice, dal, any tarkari. Eat slowly and enjoy without guilt.',tags:['enjoy','no rush','balanced']},
+{t:'s',time:'4:30 pm - Snack',name:'Small Mango Treat',desc:'3 to 4 mango slices with black salt. This is your one sweet treat for the week. Just this much.',tags:['weekly treat','mango season','savour slowly']},
+{t:'d',time:'7:30 pm - Dinner',name:'Chicken or Buff Dinner',desc:'Saturday is your protein night. See chicken and buff recipes in the recipes tab.',tags:['chicken','buff','high protein']},
+],
+Sunday:[
+{t:'b',time:'8:00 am - Breakfast',name:'Sattu Drink + 1 Boiled Egg',desc:'Fresh start to the new week. Sattu drink and 1 boiled egg. Clean and simple.',tags:['protein','fresh start','light']},
+{t:'l',time:'1:00 pm - Lunch',name:'Dal Bhat + Fresh Market Veg',desc:'Sunday market day. Pick the freshest cheap vegetable available and make tarkari. Enjoy your lunch.',tags:['market fresh','seasonal','enjoy']},
+{t:'s',time:'4:30 pm - Snack',name:'Watermelon + 4 Almonds',desc:'Hydrating and light snack before evening wind-down. Easy and satisfying.',tags:['hydrating','light','easy']},
+{t:'d',time:'7:30 pm - Dinner (Roti Day)',name:'2 Rotis + Dal or Sabji',desc:'Sunday is your one roti day per week. 2 small rotis with dal or vegetable sabji. No rice tonight.',tags:['roti once a week','light','weekly rotation']},
+],
 };
-
-const mealColors = {b:'tag-r', l:'tag-p', s:'tag-a', d:'tag-g'};
-
-const schedule = [
-  {time:'7:00 am',text:'<strong>Wake up.</strong> 2 glasses lukewarm water + pinch salt + lemon. Before your phone.'},
-  {time:'8:00 am',text:'<strong>Breakfast.</strong> Do not skip this. See meal chart. Eating breakfast starts your metabolism.'},
-  {time:'10:30 am',text:'1 glass water. Light movement — walk around home 10 min if possible.'},
-  {time:'1:00 pm',text:'<strong>Lunch.</strong> Dal bhat tarkari. 1 bowl rice max. Eat slow. Put your phone down while eating.'},
-  {time:'3:30 pm',text:'1 glass water. Get changed for your walk.'},
-  {time:'4:00 pm',text:'<strong>Pre-walk snack.</strong> 4 almonds + watermelon or papaya slice. Non-negotiable for low BP.'},
-  {time:'5:00–6:30 pm',text:'<strong>Evening walk.</strong> 90 min total. Week 1 — start with 45 min. Build up week by week.'},
-  {time:'6:30 pm',text:'1–2 glasses water after walk. Rest 20 min before dinner.'},
-  {time:'7:30 pm',text:'<strong>Dinner.</strong> Lighter than lunch. Fresh, tasty recipes. See recipes tab.'},
-  {time:'9:00 pm',text:'1 cup lemon tea or warm water. Kitchen closed after this. 🚫'},
-  {time:'10:00 pm',text:'<strong>Sleep.</strong> 7–8 hours. No scrolling in bed. Good sleep = fat loss.'},
+var CHECKS=[
+'Woke up by 8am and drank water immediately',
+'Ate breakfast, did not skip',
+'Lunch: 1 bowl rice only, ate slowly',
+'Drank enough water throughout the day',
+'Completed Chloe Ting home workout',
+'Had a healthy snack before workout',
+'Went for evening walk (if no rain)',
+'Dinner was light and high protein',
 ];
-
-const recipes = [
-  {color:'pink',emoji:'🥬',name:'Stir fried cabbage',note:'Dinner star · 10 min · very low cal',steps:['Heat ½ tsp mustard oil. Add ¼ tsp jeera — let it splutter.','Add 2 cups shredded cabbage. Stir on high flame for 2 min.','Add 1 chopped tomato, pinch turmeric, salt, red chilli powder.','Cook 5 min on medium. Keep it slightly crunchy — do not overcook.','Squeeze lemon at end. Serve with 4–5 cucumber slices on the side.'],why:'<strong>Why it works:</strong> cabbage is filling, fat-burning, and almost zero calories. The crunch makes it feel satisfying.'},
-  {color:'purple',emoji:'🥒',name:'Cucumber-tomato raita',note:'Side dish for lunch · 5 min · gut healing',steps:['Grate 1 cucumber. Squeeze out water gently.','Mix into 3 tbsp plain dahi. Add salt + roasted jeera powder + coriander.','Add sliced tomato. Stir. Eat immediately — don\'t let it sit.'],why:'<strong>Replace your pickle with this.</strong> Better digestion, skin, and gut health. Goes perfectly beside dal bhat.'},
-  {color:'mint',emoji:'🥚',name:'Egg bhurji (Nepali style)',note:'Breakfast · high protein · 5 min',steps:['Heat ½ tsp oil. Add chopped onion + green chilli + tomato. Sauté 2 min.','Beat 2 eggs and pour in. Scramble on medium heat.','Add salt, turmeric, fresh coriander leaves. Done.','Eat with 4–5 cucumber slices. No bread needed.'],why:'<strong>2 eggs = 12g protein.</strong> Keeps you full until 1pm. Stops all mid-morning cravings. The most important meal.'},
-  {color:'peach',emoji:'🌿',name:'Karela-tomato fry',note:'Dinner · blood sugar control · acne fighter',steps:['Slice karela thin. Rub salt all over. Rest 10 min. Squeeze out water — removes 80% bitterness.','Heat ½ tsp oil. Fry onion slices until golden.','Add karela + 1 tomato + turmeric + salt. Cook on medium.','Add tiny pinch of sugar + squeeze of lemon. This is the trick for taste.','Cook until edges go slightly crispy. Serve hot.'],why:'<strong>Controls blood sugar spikes</strong> — which directly reduces belly fat and nodular acne. Make this 2–3 times a week.'},
-  {color:'pink',emoji:'🍅',name:'Tomato egg soup',note:'Light dinner · warming · 10 min',steps:['Sauté chopped onion + 2 garlic cloves + 2 tomatoes in ½ tsp oil.','Add 2 cups water. Bring to gentle boil.','Beat 2 eggs and slowly pour in while stirring — they cook in ribbons.','Season with salt, pepper, turmeric. Fresh coriander on top.','Eat with 1–2 small rotis.'],why:'<strong>Warm, filling, very light</strong> — perfect summer dinner that doesn\'t sit heavy. Good for skin and digestion.'},
-  {color:'mint',emoji:'🥬',name:'Spinach-iron dal',note:'Lunch or dinner · low BP helper · iron boost',steps:['Cook your normal masoor dal until soft.','When almost done, add 2 big handfuls of roughly chopped spinach.','Cook 3–4 min more. Add salt, turmeric, 1 crushed garlic clove.','Tiny tempering: ¼ tsp oil + jeera + dried chilli poured on top.'],why:'<strong>Directly helps</strong> low BP, dizziness, irregular periods, and low energy. Make this 3–4 times a week minimum.'},
-  {color:'purple',emoji:'🍉',name:'Watermelon-lemon cooler',note:'4pm snack · replaces milk tea + biscuits',steps:['Blend 2 cups watermelon chunks — no added water needed.','Add squeeze of lemon + tiny pinch of black salt.','Drink immediately. Do not strain — keep the fibre.'],why:'<strong>Replaces your milk tea + biscuit slot completely.</strong> 95% hydration, zero sugar spike, great for skin and kidneys.'},
+var SCHED=[
+{time:'8:00 am',text:'<b>Wake up.</b> Drink 2 glasses of water before anything else.',badge:'start here',bc:'pu'},
+{time:'8:30 am',text:'<b>Breakfast.</b> Sattu drink or Horlicks milk plus 1 egg. Non-negotiable.',badge:'do not skip',bc:'pk'},
+{time:'10:00 am',text:'1 glass water. Light movement or stretching around home.',badge:'',bc:''},
+{time:'1:00 pm',text:'<b>Lunch.</b> Dal bhat tarkari. 1 bowl rice maximum. No second serving.',badge:'portion control',bc:'pu'},
+{time:'2:00 to 3:30 pm',text:'<b>Chloe Ting home workout.</b> 30 to 45 minutes. Sunday through Friday.',badge:'workout',bc:'mt'},
+{time:'4:00 pm',text:'Post-workout rest. 1 to 2 glasses water.',badge:'',bc:''},
+{time:'4:30 pm',text:'<b>Snack.</b> Fruit plus almonds or curd. See meal chart for the day.',badge:'snack',bc:'pk'},
+{time:'5:00 to 6:30 pm',text:'<b>Evening walk</b> only if it is not raining. Start with 45 min, build to 90 min.',badge:'rain check first',bc:'mt'},
+{time:'6:30 pm',text:'Water after walk or workout. Rest and freshen up.',badge:'',bc:''},
+{time:'7:30 pm',text:'<b>Dinner.</b> Light and high protein. Pick from recipes. Roti only on Sundays.',badge:'no rice at dinner',bc:'pu'},
+{time:'9:00 pm',text:'1 cup lemon tea or warm water. <b>No food after this.</b>',badge:'kitchen closed',bc:'pk'},
+{time:'10:00 pm',text:'<b>Sleep.</b> 7 to 8 hours. No scrolling in bed.',badge:'',bc:''},
 ];
-
-const checkItems = [
-  {text:'drank 2 glasses water on waking 💧', icon:'💧'},
-  {text:'ate breakfast — did not skip 🍳', icon:'🍳'},
-  {text:'lunch: 1 bowl rice only, no refill 🍚', icon:'🍚'},
-  {text:'drank water before each meal', icon:'💧'},
-  {text:'no biscuits at 4pm snack 🚫', icon:'🚫'},
-  {text:'ate pre-walk snack (almonds/fruit) 🌿', icon:'🌿'},
-  {text:'completed evening walk 👟', icon:'👟'},
-  {text:'drank water after walk 💧', icon:'💧'},
-  {text:'dinner was lighter than lunch 🥗', icon:'🥗'},
-  {text:'no food after 9pm 🌙', icon:'🌙'},
+var RECIPES=[
+{c:'mt',e:'&#129382;',n:'Egg Bhurji Bowl',note:'any weekday dinner - 15 min - 200 cal - 14g protein',steps:['Heat half tsp oil. Add onion, green chilli, tomato. Saute 3 min.','Beat 2 eggs and pour in. Scramble gently on medium.','Add salt, turmeric, garam masala, fresh coriander.','Serve in a bowl with sliced cucumber and tomato on side.'],why:'<b>Fast and filling.</b> The veggie bowl makes it satisfying without rice. Best quick weekday dinner.',macros:['14g protein','200 cal','low carb']},
+{c:'pu',e:'&#127831;',n:'Lemon Garlic Chicken Stir Fry',note:'saturday dinner - 20 min - 280 cal - 28g protein',steps:['Marinate chicken pieces in lemon, garlic paste, salt, pepper, turmeric for 15 min.','Stir fry on high flame until golden and cooked through.','Add sliced capsicum, onion, tomato. Toss 3 min on high.','Squeeze fresh lemon on top. Add coriander. Serve hot.'],why:'<b>Highest protein dinner of the week.</b> Lemon keeps it bright. No rice needed, the chicken fills you completely.',macros:['28g protein','280 cal','zero carb']},
+{c:'be',e:'&#129385;',n:'Buff Momo Style Patty',note:'saturday alt - 20 min - 250 cal - 24g protein',steps:['Mix 100g buff mince with onion, garlic, green chilli, salt, cumin, coriander.','Shape into small flat patties with your hands.','Dry fry in non-stick pan with minimal oil. Flip once until golden.','Serve with tomato chutney and cucumber slices.'],why:'<b>All the momo flavour without the dough.</b> Feels like a treat but is completely on plan. High protein.',macros:['24g protein','250 cal','low carb']},
+{c:'pk',e:'&#129748;',n:'Spicy Rajma Bowl',note:'veg dinner - 20 min - 240 cal - 12g protein',steps:['Pressure cook soaked rajma until very soft.','Saute onion, tomato, garlic, ginger. Add cumin, coriander, chilli powder.','Add rajma with a little water. Simmer 10 min.','Mash a few beans in the pan to thicken naturally. Eat as a bowl.'],why:'<b>Plant protein powerhouse.</b> Super filling and high fibre. Great for digestion and keeps you full all night.',macros:['12g protein','240 cal','high fiber']},
+{c:'mt',e:'&#129401;',n:'Tofu Vegetable Stir Fry',note:'veg dinner - 15 min - 180 cal - 13g protein',steps:['Press tofu dry and cut into cubes. Pan fry until golden on both sides.','Remove tofu. Stir fry cabbage, beans, capsicum on high flame.','Add tofu back. Season with 1 tsp soy sauce, garlic, ginger, chilli flakes.','Toss on high heat 2 min. Serve immediately while hot.'],why:'<b>Light but protein rich.</b> High heat keeps the vegetables crunchy and flavourful. Very satisfying for its calories.',macros:['13g protein','180 cal','very low cal']},
+{c:'pu',e:'&#127859;',n:'Flat Masala Omelette',note:'quick dinner - 10 min - 160 cal - 12g protein',steps:['Beat 2 eggs with salt, turmeric, chilli, chopped onion, tomato, coriander.','Pour into hot pan with half tsp oil. Spread thin and flat.','Cook on medium until set. Flip once. Do not fold it.','Serve with a big bowl of cucumber and tomato dressed with lemon and salt.'],why:'<b>Fastest dinner on the list.</b> Flat omelette with a fresh big salad is surprisingly filling. Done in 10 minutes.',macros:['12g protein','160 cal','10 min only']},
+{c:'be',e:'&#127858;',n:'Vegetable Clear Soup + Egg',note:'lightest dinner - 15 min - 150 cal - 10g protein',steps:['Boil water. Add tomato, onion, cabbage, carrot, beans, whatever you have.','Season with salt, pepper, garlic, ginger. Optional dash of soy sauce.','Keep it thin and brothy. Do not thicken. Simmer 10 min.','Serve hot with 1 hard boiled egg on the side.'],why:'<b>Perfect on heavy days or when you feel bloated.</b> The broth is warming and hydrating. Egg adds protein gently.',macros:['10g protein','150 cal','ultra light']},
+{c:'pk',e:'&#129752;',n:'Chana Masala Dry Style',note:'veg dinner - 20 min - 220 cal - 11g protein',steps:['Use canned or pre-boiled chickpeas. Drain well.','Saute onion, tomato, garlic, green chilli until dry.','Add chickpeas, salt, chaat masala, cumin, dried mango powder.','Toss until slightly charred and dry. No water. Top with raw onion and lemon.'],why:'<b>Tastes like chaat but is completely on plan.</b> Satisfies junk food cravings. High protein vegetarian option.',macros:['11g protein','220 cal','high fiber']},
+{c:'mt',e:'&#129367;',n:'Egg and Spinach Power Bowl',note:'any dinner - 15 min - 190 cal - 14g protein',steps:['Wilt 2 big handfuls of spinach in pan with garlic and salt. 3 minutes only.','Soft boil or poach 2 eggs separately.','Layer in a bowl: spinach, sliced tomato, cucumber.','Place eggs on top. Dress with lemon juice, black salt, pepper. Eat warm.'],why:'<b>Iron plus protein plus greens in one bowl.</b> Directly helps low BP and irregular periods. Beautiful and filling.',macros:['14g protein','190 cal','iron boost']},
+{c:'pu',e:'&#127831;',n:'Nepali Chicken Sadeko',note:'weekend dinner - 15 min - 240 cal - 26g protein',steps:['Boil 100g chicken breast until fully cooked. Shred or slice thin.','Mix with finely chopped onion, green chilli, tomato, fresh coriander.','Season with lemon juice, salt, chilli powder, cumin, half tsp mustard oil.','Toss everything together. Serve cold or room temperature with cucumber.'],why:'<b>High protein, almost no fat needed.</b> Sadeko style means barely any cooking oil. Feels fresh and exciting.',macros:['26g protein','240 cal','no heavy cooking']},
 ];
-
-let checks = JSON.parse(localStorage.getItem('checks') || '[]') || new Array(10).fill(false);
-if (checks.length !== 10) checks = new Array(10).fill(false);
-let water = parseInt(localStorage.getItem('water') || '0');
-let weightLog = JSON.parse(localStorage.getItem('wlog') || '[]');
-let daysDone = parseInt(localStorage.getItem('daysDone') || '0');
-
-function save() {
-  localStorage.setItem('checks', JSON.stringify(checks));
-  localStorage.setItem('water', water);
-  localStorage.setItem('wlog', JSON.stringify(weightLog));
-  localStorage.setItem('daysDone', daysDone);
+var checks=JSON.parse(localStorage.getItem('c')||'[]');
+if(checks.length!==CHECKS.length)checks=new Array(CHECKS.length).fill(false);
+var water=parseInt(localStorage.getItem('w')||'0');
+var wlog=JSON.parse(localStorage.getItem('wl')||'[]');
+var sdt=localStorage.getItem('sd')||null;
+function save(){localStorage.setItem('c',JSON.stringify(checks));localStorage.setItem('w',water);localStorage.setItem('wl',JSON.stringify(wlog));if(!sdt){sdt=new Date().toISOString().split('T')[0];localStorage.setItem('sd',sdt);}}
+function sw(n,el){
+  document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active');});
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('active');});
+  document.querySelectorAll('.bbt').forEach(function(b){b.classList.remove('on');});
+  document.getElementById(n).classList.add('active');
+  if(el&&el.classList.contains('tab'))el.classList.add('active');
+  var map={home:'bh',meals:'bm',schedule:'bs',recipes:'br'};
+  if(map[n]){var bb=document.getElementById(map[n]);if(bb)bb.classList.add('on');}
 }
-
-function switchTab(name) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.bot-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(name).classList.add('active');
-  document.querySelectorAll('.nav-btn').forEach(b => { if(b.getAttribute('onclick').includes(name)) b.classList.add('active'); });
-  const botBtn = document.getElementById('bot-'+name);
-  if(botBtn) botBtn.classList.add('active');
+function renderCircles(){
+  if(!sdt){sdt=new Date().toISOString().split('T')[0];localStorage.setItem('sd',sdt);}
+  var start=new Date(sdt);var now=new Date();
+  var d=Math.min(90,Math.floor((now-start)/86400000));
+  var m1=Math.min(30,d);var m2=Math.min(30,Math.max(0,d-30));var m3=Math.min(30,Math.max(0,d-60));
+  var C=207;
+  document.getElementById('r1').style.strokeDashoffset=C-(C*m1/30);
+  document.getElementById('r2').style.strokeDashoffset=C-(C*m2/30);
+  document.getElementById('r3').style.strokeDashoffset=C-(C*m3/30);
+  document.getElementById('m1t').textContent=m1+'/30';
+  document.getElementById('m2t').textContent=m2+'/30';
+  document.getElementById('m3t').textContent=m3+'/30';
+  document.getElementById('jdays').textContent='Day '+d+' of 90';
+  var p=Math.round((d/90)*100);
+  document.getElementById('tbar').style.width=p+'%';
+  document.getElementById('tpct').textContent=p+'%';
+  var msgs=['your journey starts today','you are building something real','halfway and still going','almost there, keep it up','you did it, 90 days strong'];
+  document.getElementById('jsub').textContent=msgs[Math.min(4,Math.floor(d/22))];
+  document.getElementById('s-days').textContent=d;
 }
-
-function renderChecklist() {
-  const done = checks.filter(Boolean).length;
-  const pct = Math.round((done / checkItems.length) * 100);
-  const circ = 163.4;
-  const offset = circ - (circ * pct / 100);
-  document.getElementById('ring-prog').style.strokeDashoffset = offset;
-  document.getElementById('ring-pct').textContent = pct + '%';
-  const msgs = ['start checking off your day ✨','keep going! you got this 🌸','halfway there! 💪','almost done! 🌟','perfect day! 🎉'];
-  document.getElementById('prog-sub').textContent = msgs[Math.floor(done/3)] || msgs[4];
-
-  const el = document.getElementById('checklist');
-  el.innerHTML = checkItems.map((item,i) => `
-    <div class="check-item" onclick="toggleCheck(${i})">
-      <div class="check-box ${checks[i]?'checked':''}">
-        ${checks[i]?'✓':''}
-      </div>
-      <div class="check-text ${checks[i]?'done':''}">${item.text}</div>
-    </div>
-  `).join('');
-
-  document.getElementById('stat-days').textContent = daysDone;
-}
-
-function toggleCheck(i) {
-  checks[i] = !checks[i];
-  const done = checks.filter(Boolean).length;
-  if(done === checkItems.length) daysDone++;
-  save();
-  renderChecklist();
-}
-
-function renderWater() {
-  const el = document.getElementById('water-drops');
-  el.innerHTML = Array.from({length:12},(_,i) => `
-    <button class="drop-btn ${i<water?'filled':''}" onclick="tapWater(${i})">💧</button>
-  `).join('');
-  document.getElementById('water-count').textContent = water;
-}
-
-function tapWater(i) {
-  water = (i < water) ? i : i + 1;
-  save();
-  renderWater();
-}
-
-function resetToday() {
-  if(confirm('Reset today\'s checklist and water? 🌸')) {
-    checks = new Array(10).fill(false);
-    water = 0;
-    save();
-    renderChecklist();
-    renderWater();
-  }
-}
-
-function renderMeals() {
-  const day = days[currentDay];
-  document.getElementById('day-label').textContent = day;
-  const dots = document.getElementById('day-dots');
-  dots.innerHTML = days.map((_,i) => `<div class="day-dot ${i===currentDay?'active':''}"></div>`).join('');
-  const meals = mealPlan[day];
-  document.getElementById('meal-list').innerHTML = meals.map(m => `
-    <div class="card">
-      <div class="meal-time-tag">${m.time}</div>
-      <div style="display:flex; gap:10px; align-items:flex-start; margin-top:4px;">
-        <div class="meal-dot ${m.type}" style="margin-top:6px;"></div>
-        <div style="flex:1;">
-          <div class="meal-name">${m.name}</div>
-          <div class="meal-desc">${m.desc}</div>
-          <div class="meal-tags">${m.tags.map(t=>`<span class="tag ${mealColors[m.type]}">${t}</span>`).join('')}</div>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-function nextDay() { currentDay=(currentDay+1)%7; renderMeals(); }
-function prevDay() { currentDay=(currentDay+6)%7; renderMeals(); }
-
-function renderSchedule() {
-  document.getElementById('timeline-content').innerHTML = schedule.map(s => `
-    <div class="tl-item">
-      <div class="tl-time">${s.time}</div>
-      <div class="tl-text">${s.text}</div>
-    </div>
-  `).join('');
-}
-
-function renderRecipes() {
-  document.getElementById('recipe-list').innerHTML = recipes.map(r => `
-    <div class="recipe-card ${r.color}">
-      <div class="recipe-emoji">${r.emoji}</div>
-      <div class="recipe-name">${r.name}</div>
-      <div class="recipe-note">${r.note}</div>
-      <ol class="steps">
-        ${r.steps.map((s,i)=>`<li data-n="${i+1}.">${s}</li>`).join('')}
-      </ol>
-      <div class="recipe-why">${r.why}</div>
-    </div>
-  `).join('');
-}
-
-function logWeight() {
-  const val = parseFloat(document.getElementById('w-input').value);
-  if(isNaN(val)||val<30||val>120) return;
-  const d = new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'2-digit'});
-  weightLog.unshift({date:d, kg:val});
-  document.getElementById('w-input').value='';
-  save();
-  renderWeightLog();
-}
-
-function renderWeightLog() {
-  const el = document.getElementById('weight-log-entries');
-  if(!weightLog.length) {
-    el.innerHTML='<p style="font-size:12px;color:var(--text-light);">no entries yet. log every monday morning 🌙</p>';
-    document.getElementById('curr-w').textContent='— kg';
-    return;
-  }
-  el.innerHTML = weightLog.map((e,i)=>{
-    const prev = weightLog[i+1];
-    let diffHtml='';
-    if(prev){
-      const d=(e.kg-prev.kg).toFixed(1);
-      diffHtml=`<span class="log-diff ${d<=0?'down':'up'}">${d<=0?d:'+'+ d} kg</span>`;
-    }
-    return `<div class="log-row"><span class="log-date">${e.date}</span><span class="log-kg">${e.kg} kg</span>${diffHtml}</div>`;
+function renderChecks(){
+  var done=checks.filter(Boolean).length;
+  var p=Math.round((done/CHECKS.length)*100);
+  document.getElementById('cprog').style.width=p+'%';
+  document.getElementById('clbl').textContent=done+' / '+CHECKS.length+' done';
+  document.getElementById('checklist').innerHTML=CHECKS.map(function(c,i){
+    return '<div class="chk-item" onclick="tgl('+i+')"><div class="cb '+(checks[i]?'on':'')+'">'+( checks[i]?'&#10003;':'')+'</div><div class="cb-txt '+(checks[i]?'done':'')+'" >'+c+'</div></div>';
   }).join('');
-  const latest=weightLog[0].kg;
-  const lost=Math.max(0,50-latest);
-  document.getElementById('curr-w').textContent=latest+' kg';
-  document.getElementById('goal-bar').style.width=Math.min(100,(lost/8)*100)+'%';
-  document.getElementById('lost-label').textContent=`${lost.toFixed(1)} / 8 kg lost`;
-  document.getElementById('stat-lost').textContent=lost.toFixed(1);
 }
-
-renderChecklist();
-renderWater();
-renderMeals();
-renderSchedule();
-renderRecipes();
-renderWeightLog();
+function tgl(i){checks[i]=!checks[i];save();renderChecks();}
+function renderWater(){
+  document.getElementById('wdrops').innerHTML=Array.from({length:12},function(_,i){
+    return '<button class="wd '+(i<water?'on':'')+'" onclick="tapW('+i+')">&#128167;</button>';
+  }).join('');
+  document.getElementById('wcnt').textContent=water;
+}
+function tapW(i){water=(i<water)?i:i+1;save();renderWater();}
+function resetDay(){if(confirm('Reset today?')){checks=new Array(CHECKS.length).fill(false);water=0;save();renderChecks();renderWater();}}
+function logW(){
+  var v=parseFloat(document.getElementById('winput').value);
+  if(isNaN(v)||v<30||v>120)return;
+  var d=new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'2-digit'});
+  wlog.unshift({date:d,kg:v});document.getElementById('winput').value='';save();renderWlog();
+}
+function renderWlog(){
+  var el=document.getElementById('wentries');
+  if(!wlog.length){el.innerHTML='<p style="font-size:12px;color:var(--textlt);">no entries yet</p>';return;}
+  el.innerHTML=wlog.map(function(e,i){
+    var prev=wlog[i+1];var dh='';
+    if(prev){var diff=(e.kg-prev.kg).toFixed(1);dh='<span class="wdiff '+(diff<=0?'g':'b')+'">'+(diff<=0?diff:'+'+diff)+' kg</span>';}
+    return '<div class="wlr"><span class="wlr-d">'+e.date+'</span><span class="wlr-k">'+e.kg+' kg</span>'+dh+'</div>';
+  }).join('');
+  var lost=Math.max(0,50-wlog[0].kg);
+  document.getElementById('currw').textContent=wlog[0].kg+' kg';
+  document.getElementById('gbar').style.width=Math.min(100,(lost/8)*100)+'%';
+  document.getElementById('glbl').textContent=lost.toFixed(1)+' / 8 kg lost';
+  document.getElementById('s-lost').textContent=lost.toFixed(1);
+}
+function renderMeals(){
+  document.getElementById('dlbl').textContent=DAYS[cday];
+  document.getElementById('ddots').innerHTML=DAYS.map(function(_,i){return '<div class="ddot '+(i===cday?'on':'')+'"></div>';}).join('');
+  var tc={b:'pk',l:'pu',s:'be',d:'mt'};
+  document.getElementById('mlist').innerHTML=MEALS[DAYS[cday]].map(function(m){
+    return '<div class="mc '+m.t+'"><div class="mt-time '+m.t+'">'+m.time+'</div><div class="mt-name">'+m.name+'</div><div class="mt-desc">'+m.desc+'</div><div class="mt-tags">'+m.tags.map(function(t){return '<span class="mtag '+tc[m.t]+'">'+t+'</span>';}).join('')+'</div></div>';
+  }).join('');
+}
+function nd(){cday=(cday+1)%7;renderMeals();}
+function pd(){cday=(cday+6)%7;renderMeals();}
+function renderSched(){
+  document.getElementById('sched').innerHTML=SCHED.map(function(s){
+    return '<div class="tli"><div class="tli-time">'+s.time+'</div><div class="tli-text">'+s.text+'</div>'+(s.badge?'<span class="tlbadge '+s.bc+'">'+s.badge+'</span>':'')+'</div>';
+  }).join('');
+}
+function renderRecipes(){
+  document.getElementById('rlist').innerHTML=RECIPES.map(function(r){
+    return '<div class="rc '+r.c+'"><div class="re">'+r.e+'</div><div class="rn">'+r.n+'</div><div class="rnote">'+r.note+'</div><div class="rmacro">'+r.macros.map(function(m){return '<span class="rmtag '+(m.includes('protein')?'p':m.includes('cal')?'c':'f')+'">'+m+'</span>';}).join('')+'</div><ol class="rsteps">'+r.steps.map(function(s,i){return '<li data-n="'+(i+1)+'.">'+s+'</li>';}).join('')+'</ol><div class="rwhy">'+r.why+'</div></div>';
+  }).join('');
+}
+renderCircles();renderChecks();renderWater();renderMeals();renderSched();renderRecipes();renderWlog();
 </script>
 </body>
 </html>
